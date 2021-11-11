@@ -7,6 +7,12 @@ int main(int argc, char **argv)
 }
 
 
+/*
+**	git branch deki - Create Branch
+**	git checkout deki - Set a branch as a working directory
+**	git push -u origin deki - Push Changes to your Branch
+**	Change "deki" - with your branch name
+*/
 
 
 /*
