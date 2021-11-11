@@ -1,8 +1,11 @@
-typedef struct s_list
+#include "../libft/incl/libft.h"
+#include <stdio.h> //REMOVE THIS
+
+typedef struct s_vars
 {
 	int value;
 	void *next;
-}			t_list;
+}			t_vars;
 
 void	argument_handling(char **argv);
 void	error_handling(void); //error handler Already Sorted/Errong Handling / No Arguments

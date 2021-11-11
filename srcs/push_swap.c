@@ -1,9 +1,29 @@
+//#include "inc/ft_push_swap.h"
+#include "../inc/ft_push_swap.h"
 
-
-int main(int argc, char **argv)
+int main(void)
 {
 	//adding test commit
 	//commit test of deki branch
+
+	/*int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[j])
+		{
+			printf("%c", argv[i][j]);
+			j++;
+		}
+		i++;
+	}*/
+	printf("we are here\n and number of arguments ");
+	return (0);
+
 }
 
 
@@ -11,7 +31,7 @@ int main(int argc, char **argv)
 **	git branch deki - Create Branch
 **	git checkout deki - Set a branch as a working directory
 **	git push -u origin deki - Push Changes to your Branch
-**	Change "deki" - with your branch name
+**	Change "deki" - with your branch
 */
 
 
