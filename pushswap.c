@@ -1,8 +1,24 @@
+#include "pushswap.h"
 
-
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	//adding test commit
+	int *input;
+	int	*sorted;
+	int	*unsorted;
+	int	*indexed;
+	//int k = 0;
+
+	input = take_arg(argc - 1, argv);
+	unsorted = copy(input, argc - 1);
+	sorted = bbsort(input, argc - 1);
+	indexed = get_sorted_indexes(unsorted, sorted, argc - 1);
+	init_struct(indexed, argc - 1);
+	// while (k < argc - 1)
+	// {
+	// 	printf("%d\n", indexed[k]);
+	// 	k++;
+	// }
+	// return (0);
 }
 
 
