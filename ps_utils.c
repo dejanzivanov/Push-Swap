@@ -1,5 +1,20 @@
 #include "pushswap.h"
 
+void	just_the_two_of_us(int *input)
+{
+	int	holder;
+	if (input[1] > input[2])
+	{
+		holder = input[1];
+		input[1] = input[2];
+		input[2] = holder;
+		write(1, "sa\n", 3);
+		exit(0);
+	}
+	else
+		exit(0);
+}
+
 int *take_arg(int len, char *arg[])
 {
 	int	i;
@@ -200,3 +215,67 @@ int *get_sorted_indexes(int *before, int *after, int len)
 	// free (after);
 	return (indexes);
 }
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
+
+void	ft_lstadd_back(t_list *lst, t_list *new)
+{
+	t_list	*holder;
+
+	if (lst)
+	{
+		holder = ft_lstlast((lst));
+		holder->next = new;
+	}
+}
+
+t_list	*ft_lstnew(int value)
+{
+	t_list	*instance;
+
+	instance = (t_list *)malloc(sizeof(t_list));
+	if (!instance)
+		return (NULL);
+	instance->value = value;
+	instance->next = NULL;
+	return (instance);
+}
+
+void	printlst(t_list *lst)
+{
+	while (lst)
+	{
+		printf("%d :  %p\n", lst->value, lst);
+		lst = lst->next;
+	}
+}
+
+int		init_struct(int *indexed, int len)
+{
+	t_list	major_a;
+	t_list	major_b;
+	t_list	*new;
+	int		i;
+
+	major_a = *ft_lstnew(-1);
+	i = 0;
+	while (i < len)
+	{
+		new = ft_lstnew(indexed[i]);
+		ft_lstadd_back(&major_a, new);
+		i++;
+	}
+	printlst(&major_a);
+	major_b = *ft_lstnew(-2);
+	//sort_stack(major_a, major_b, len);
+
+	return (0);
+}
+

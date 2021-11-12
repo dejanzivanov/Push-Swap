@@ -8,10 +8,14 @@ int main(int argc, char *argv[])
 	int	*indexed;
 	//int k = 0;
 
+	if (argc == 2)
+		return (0);
 	input = take_arg(argc - 1, argv);
 	unsorted = copy(input, argc - 1);
 	sorted = bbsort(input, argc - 1);
 	indexed = get_sorted_indexes(unsorted, sorted, argc - 1);
+	if (argc == 3)
+		just_the_two_of_us(indexed);
 	init_struct(indexed, argc - 1);
 	// while (k < argc - 1)
 	// {

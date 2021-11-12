@@ -9,6 +9,7 @@ typedef struct s_list
 }			t_list;
 
 // Functions for input handling
+void	just_the_two_of_us(int *input);
 int 	*take_arg(int len, char *arg[]);
 void	argument_handling(char **argv);
 int		ft_atoi(const char *str);
@@ -21,7 +22,10 @@ int 	*get_sorted_indexes(int *before, int *after, int len);
 
 // Functions for struct management
 int		init_struct(int *indexed, int len);
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list *lst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
+void	printlst(t_list *lst);
+void	sort_stack(t_list major_a, t_list major_b, int len);
 // void	error_handling(void); //error handler Already Sorted/Errong Handling / No Arguments
 // void	sa(void);  //swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
 // void	sb(void);  //swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
