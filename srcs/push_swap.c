@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 		i++;
 	}*/
 	//printf("%s", argv[1]);
-	if (argc == 1)
+	if (argc <= 2)
 		ft_error_printer();
 	ft_error_handler(argv);
 	return (0);
