@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 	}*/
 	//printf("%s", argv[1]);
 	if (argc <= 2)
-		ft_error_printer();
+		exit(EXIT_FAILURE);
 	ft_error_handler(argv);
 	return (0);
 
