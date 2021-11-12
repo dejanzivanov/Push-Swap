@@ -23,8 +23,13 @@ int main(int argc, char **argv)
 		i++;
 	}*/
 	//printf("%s", argv[1]);
-	if (argc == 1)
+	//if (argc == 1 || argc == 2)
+	/*printf("%s", argv[0]);
+	printf("%s", argv[1]);
+	exit(EXIT_SUCCESS);*/
+	if (argc <= 2)
 		exit(EXIT_FAILURE);
+
 	ft_error_handler(argv);
 	return (0);
 
