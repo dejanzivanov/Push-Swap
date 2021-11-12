@@ -1,7 +1,7 @@
 //#include "inc/ft_push_swap.h"
 #include "../inc/ft_push_swap.h"
 
-int main(void)
+int main(int argc, char **argv)
 {
 	//adding test commit
 	//commit test of deki branch
@@ -9,23 +9,34 @@ int main(void)
 	/*int i;
 	int j;
 
-	i = 0;
-	j = 0;
-	while (argv[i])
+	i = 1;
+	j = 0;*/
+
+	//printf("we are here\n and number of arguments %d and %s", argc, argv[0]);
+	/*while (i < argc)
 	{
-		j = 0;
-		while (argv[j])
-		{
-			printf("%c", argv[i][j]);
-			j++;
-		}
+		//printf("%s ", argv[i]);
+		//printf("String is: %s ", argv[i]);
+		j = ft_atoi(argv[i]);
+
+		printf("%d", j);
 		i++;
 	}*/
-	printf("we are here\n and number of arguments ");
+	//printf("%s", argv[1]);
+	if (argc == 1)
+		ft_error_printer();
+	ft_error_handler(argv);
 	return (0);
 
 }
 
+
+// PROMPT_DIRTRIM=1 - helping command for shortening the terminal directory
+
+
+//clear | make | ARG=`ruby -e 'puts (0..3).to_a.shuffle.join(" ")'`; ./push_swap $ARG
+
+// ARG=`ruby -e 'puts (1..50).to_a.shuffle.join(" ")'`; ./push_swap $ARG
 
 /*
 **	git branch deki - Create Branch

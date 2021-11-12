@@ -7,6 +7,8 @@ typedef struct s_vars
 	void *next;
 }			t_vars;
 
+void	ft_error_printer();
+void	ft_error_handler(char **argv);
 void	argument_handling(char **argv);
 void	error_handling(void); //error handler Already Sorted/Errong Handling / No Arguments
 void	sa(void);  //swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).

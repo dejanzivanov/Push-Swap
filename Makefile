@@ -17,7 +17,7 @@ SRCD		=	./srcs/
 				ft_list_updates.c ft_print_char.c ft_print_hexadecimal.c \
   				ft_print_integer.c ft_print_percentage.c ft_print_pointer.c \
 				ft_print_string.c ft_print_unsigned_int.c ft_utils.c ft_printf.c
-SRC 		=	push_swap.c
+SRC 		=	push_swap.c ft_error_handler.c
 
 SRCS_FILES	= $(addprefix $(SRCD),$(SRC))
 OBJD		= ./obj/
@@ -27,7 +27,8 @@ BUILD 		= $(SRCS_OBJS:$(OBJD)%.o)
 
 CC         = gcc
 
-CFLAGS         = -Wall -Wextra -Werror
+#CFLAGS         = -Wall -Wextra -Werror //this needs to be commented out in the end
+CFLAGS         =
 
 RM         = rm -f
 
