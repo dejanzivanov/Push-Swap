@@ -7,11 +7,11 @@ RETURN VALUE
 	The converted value.
 */
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	j;
-	int	k;
+	long	i;
+	long	j;
+	long	k;
 
 	i = 0;
 	j = 1;

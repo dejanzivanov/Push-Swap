@@ -10,7 +10,8 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-int			ft_atoi(const char *str);
+long		ft_atoi_special(const char *str);
+long		ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
 int			ft_isalnum(int c);
