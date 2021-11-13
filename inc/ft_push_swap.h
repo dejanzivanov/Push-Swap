@@ -5,14 +5,18 @@
 typedef struct s_vars
 {
 	int value;
-	void *next;
+	//void *next;
+	void			*content;
+	struct s_vars *next;
+
 }			t_vars;
 
+void	ft_sorted_handler(char **argv);
 void	ft_error_printer();
 void	ft_error_handler(char **argv);
 void	ft_int_range_handler(char **argv);
 void	ft_duplicate_handler(char **argv);
-
+void	ft_sorted_handler(char **argv);
 
 void	argument_handling(char **argv);
 void	error_handling(void); //error handler Already Sorted/Errong Handling / No Arguments

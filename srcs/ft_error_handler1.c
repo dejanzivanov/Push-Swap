@@ -74,7 +74,7 @@ void	ft_error_handler(char **argv)
 	ft_non_numeric_handler(argv);
 	ft_int_range_handler(argv);
 	ft_duplicate_handler(argv);
-
+	ft_sorted_handler(argv);
 }
 
 /*

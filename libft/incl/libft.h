@@ -7,8 +7,9 @@
 typedef struct s_list
 {
 	void			*content;
+	unsigned int	value;
 	struct s_list	*next;
-}				t_list;
+}					t_list;
 
 long			ft_atoi_special(const char *str);
 long			ft_atoi(const char *str);
@@ -46,7 +47,7 @@ char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
-t_list		*ft_lstnew(void *content);
+t_list		*ft_lstnew(int content);
 void		ft_lstadd_front(t_list **lst, t_list *neew);
 int			ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);

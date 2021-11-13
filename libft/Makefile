@@ -1,5 +1,6 @@
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+#CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		=
 RM			= rm -f
 SRCD		= ./srcs/
 SRC			= ft_atoi_special.c ft_itoa.c ft_split.c ft_strtrim.c ft_memccpy.c ft_strdup.c ft_substr.c ft_strchr.c \
