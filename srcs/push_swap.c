@@ -27,13 +27,64 @@ int main(int argc, char **argv)
 	/*printf("%s", argv[0]);
 	printf("%s", argv[1]);
 	exit(EXIT_SUCCESS);*/
-	if (argc <= 2)
-		exit(1);
 
-	ft_error_handler(argv);
+
+
+	t_list *stack_a_head;
+
+	t_list *stack_b;
+
+	//stack_a_head = (t_list *)ft_calloc(1, sizeof(t_list));
+	stack_a_head = NULL;
+
+	if (argc <= 2)
+	{
+		freeList(stack_a_head);
+		exit(1);
+	}
+
+	ft_error_handler(argv, stack_a_head);
+	free(stack_a_head);
+
+	/*start_push(swap)
+
+
+	if(number of test cases3)
+		start1
+	101   	5 	0
+	5 		0 	101
+	0 		5 	101
+	x 		y 		z
+		x = ft_atoi(argv[1]);
+		y = ft_atoi(argv[2]);
+		z = ft_atoi(argv[3]);
+		if (x > y) && (x > z)
+		{
+			ra(elements);
+			if (y > z)
+				sa(y, z);
+			else
+				-> return the arranged stack
+		}
+		if()
+		if()
+		if()
+		if()
+		if()
+	if(number of test cases5)
+		start2
+	if(number of test cases100)
+		start3
+	if(number of test cases500)
+		start4*/
+
+
 	return (0);
 
 }
+
+// REMINDER INITIALIZE THE LINKED LIST AT THE START OF THE MAIN SO ITS USABLE FOR LATER
+
 
 
 // PROMPT_DIRTRIM=1 - helping command for shortening the terminal directory

@@ -12,7 +12,7 @@ RETURN VALUE
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	/*t_list	*tmp;
+	t_list	*tmp;
 	t_list	*new_list;
 
 	if (!lst)
@@ -28,5 +28,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			ft_lstadd_back(&new_list, tmp);
 		lst = lst->next;
 	}
-	return (new_list);*/
+	return (new_list);
 }

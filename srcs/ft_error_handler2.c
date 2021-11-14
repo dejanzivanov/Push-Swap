@@ -3,11 +3,21 @@
 void printlist(t_list *head)
 {
 	t_list *temporary = head;
+	int i = 0;
 
 	while (temporary != NULL)
 	{
-		printf("J %d \n", temporary->value);
+		//printf("INDEX IS : %d \n", *(temporary)->content->value);
+		//printf("INDEX IS : %d \n", *(*(temporary->content))->index);
+		//printf("VALUE IS : %d \n", (*(t_list *)temporary)->(t_vars *)content->value);
+		printf("VALUE IS : %d \n", ((t_vars *)temporary->content)->value);
+		//printf("idfag %d\n", head->(t_vars *)content->value);
+		//printf("idfag %d\n", ((t_list *)head)->content.value);
+		//printf("idfag %d\n", ((t_list *)head)->content->value);
+		//printf("idfag %d\n", ((t_list *)head)->((t_vars *)content)->value);
 		temporary = temporary->next;
+		//printf("I is: %d\n", i);
+		i++;
 	}
 	printf("\n");
 
@@ -15,62 +25,112 @@ void printlist(t_list *head)
 }
 
 
-
-
-void	ft_sorted_handler(char **argv)
+void check_if_sorted_list_is_sorted(t_list *head)
 {
-	t_list *head;
+	t_list *temporary = head;
+	int value1;
+	int value2;
+	int sorted;
 
+	value1 = 0;
+	value2 = 0;
+	sorted = 0;
+
+	//printf("Data is: %p", temporary->content);
+
+
+	//printf("VALUE IS : %d \n", ((t_vars *)temporary->content)->value);
+	while (temporary != NULL)
+	{
+		//value1 = temporary->content->value;
+		value1 = ((t_vars *)temporary->content)->value;
+		temporary = temporary->next;
+		if (temporary != NULL)
+			//value2 = temporary->content->value;
+			value2 = ((t_vars *)temporary->content)->value;
+		if (temporary != NULL)
+		{
+			if (!(value1 < value2))
+			{
+				sorted++;
+			}
+		}
+	}
+	if (sorted == 0)
+	{
+		//freeList(head); //FUCK VLAD
+		//free(head);
+		//exit(1);
+		printf("ITS SORTED\n");
+	}
+	else
+	{
+		printf("ITS NOT SORTED\n");
+	}
+
+}
+
+void	ft_sorted_handler(char **argv, t_list *list)
+{
 	t_list *temp;
+	t_vars *temp2;
 	int	i;
 	int j;
+	int counter;
 
 	i = 1;
 	j = 0;
+	counter = 0;
+	//list = ft_lstnew(ft_atoi(argv[1]));
 
-	head = ft_lstnew(-1);
+	//list = ft_lstnew(ft_atoi(argv[1]));
+	//list->index = counter;
 	while (argv[i])
 	{
+		counter++;
 		j = ft_atoi(argv[i]);
-		temp = ft_lstnew(j);
-		ft_lstadd_back(&head, temp);
+		temp2 = (t_vars *)ft_calloc(1, sizeof(t_vars));
+		temp2->value = j;
+		temp2->index = counter;
+		//printf("Index is: %d\n ", temp2->index);
+		//printf("Index is: %d\n ", temp2->value);
+		temp = ft_lstnew(temp2);
+		//temp->content = temp2;
+		ft_lstadd_back(&list, temp);
+		//printf("List is : %p", list->content);
 		i++;
 	}
-	printlist(head);
-	head->next->value;
+
 	/*while (argv[i])
 	{
+		counter++;
 		j = ft_atoi(argv[i]);
-		printf("\nJ IS: %d\n", j);
-		/*temp = ft_lstnew(i);
-		temp->value = j;
-		temp->next = head;
-		head = temp;
-		printf("%d", j);
-		i++;*/
-		//temp = ft_lstnew(&temp);
-		//temp->value = j;
-		//temp->next = head;
-		//head = temp;
-		//i++;
-	//}
-	/*while (argv[i])
-	{
-		//j = ft_atoi(argv[i]);
-
-
-
-
-
-
-
-		//i++;
+		temp = ft_lstnew(j);
+		temp->index = counter;
+		ft_lstadd_back(&list, temp);
+		i++;
 	}*/
-
-	//printlist1(head);
-	//printf("\n");
-	//printlist(head);
+	printlist(list);
+	check_if_sorted_list_is_sorted(list);
+	freeList(list);
 }
+
+void freeList(t_list *head)
+{
+   t_list *tmp;
+
+   while (head != NULL)
+    {
+		//printf("Address is %p and value is %i \n", head, head->value);
+       tmp = head;
+
+       head = head->next;
+ 	   free(tmp->content);
+       free(tmp);
+    }
+}
+
+
 
 //SPYRO BRAINIAC!!!
 /*
@@ -95,7 +155,7 @@ int    check_if_sorted(int *arr, int length)
         return(0);
 }*/
 
-
+/*
 void printlist1(t_list *head)
 {
 	t_list *temporary = head;
@@ -112,4 +172,4 @@ void printlist1(t_list *head)
 
 	}
 	printf("\n");
-}
+}*/

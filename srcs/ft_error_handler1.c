@@ -1,12 +1,15 @@
 #include "../inc/ft_push_swap.h"
 
-void	ft_error_printer()
+void	ft_error_printer(t_list *list)
 {
 	write(2,"Error\n", 6);
+	//free(list);
+	freeList(list);
+	free(list);
 	exit(EXIT_FAILURE);
 }
 
-void	ft_non_numeric_handler(char **argv)
+void	ft_non_numeric_handler(char **argv, t_list *list)
 {
 	int i;
 	int j;
@@ -22,12 +25,12 @@ void	ft_non_numeric_handler(char **argv)
 		else
 			k = ft_atoi_special((argv[i]));
 		if (k == 2147483649 || k > INT_MAX )
-			ft_error_printer();
+			ft_error_printer(list);
 		i++;
 	}
 }
 
-void	ft_int_range_handler(char **argv)
+void	ft_int_range_handler(char **argv, t_list *list)
 {
 	int i;
 	long j;
@@ -38,12 +41,12 @@ void	ft_int_range_handler(char **argv)
 	{
 		j = ft_atoi(argv[i]);
 		if (j < INT_MIN || j > INT_MAX)
-			ft_error_printer();
+			ft_error_printer(list);
 		i++;
 	}
 }
 
-void	ft_duplicate_handler(char **argv)
+void	ft_duplicate_handler(char **argv, t_list *list)
 {
 	int i;
 	int j;
@@ -61,7 +64,7 @@ void	ft_duplicate_handler(char **argv)
 		{
 			l = ft_atoi(argv[k]);
 			if (j == l)
-				ft_error_printer();
+				ft_error_printer(list);
 			k++;
 		}
 		i++;
@@ -69,12 +72,12 @@ void	ft_duplicate_handler(char **argv)
 	}
 }
 
-void	ft_error_handler(char **argv)
+void	ft_error_handler(char **argv, t_list *list)
 {
-	ft_non_numeric_handler(argv);
-	ft_int_range_handler(argv);
-	ft_duplicate_handler(argv);
-	ft_sorted_handler(argv);
+	ft_non_numeric_handler(argv, list);
+	ft_int_range_handler(argv, list);
+	ft_duplicate_handler(argv, list);
+	ft_sorted_handler(argv, list);
 }
 
 /*

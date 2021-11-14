@@ -4,19 +4,18 @@
 
 typedef struct s_vars
 {
-	int value;
-	//void *next;
-	void			*content;
-	struct s_vars *next;
-
+	unsigned int index;
+	int		value;
 }			t_vars;
 
-void	ft_sorted_handler(char **argv);
-void	ft_error_printer();
-void	ft_error_handler(char **argv);
-void	ft_int_range_handler(char **argv);
-void	ft_duplicate_handler(char **argv);
-void	ft_sorted_handler(char **argv);
+
+
+void	freeList(t_list *head);
+void	ft_sorted_handler(char **argv, t_list *list);
+void	ft_error_printer(t_list *list);
+void	ft_error_handler(char **argv, t_list *list);
+void	ft_int_range_handler(char **argv, t_list *list);
+void	ft_duplicate_handler(char **argv, t_list *list);
 
 void	argument_handling(char **argv);
 void	error_handling(void); //error handler Already Sorted/Errong Handling / No Arguments
