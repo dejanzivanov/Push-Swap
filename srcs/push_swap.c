@@ -72,10 +72,12 @@ int main(int argc, char **argv)
 	stack_a = ft_error_handler(argv, stack_a);
 	stack_b = copy_list(stack_a);
 	printlist(stack_a);
-	swap_a_b(&stack_a, "sa");
+	//swap_a_b(&stack_a, "sa");
 	//printlist(stack_b);
 
-	//reverse_rotate_a_b(&stack_a, &stack_b);
+	// reverse_rotate_a_b(&stack_a, &stack_b);
+	reverse_rotate_stack(&stack_a, "sa");
+	printlist(stack_a);
 	//printlist(stack_a);
 	//printlist(stack_b);
 	//reve
