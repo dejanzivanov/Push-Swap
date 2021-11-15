@@ -1,6 +1,32 @@
 //#include "inc/ft_push_swap.h"
 #include "../inc/ft_push_swap.h"
 
+void insert(t_list **b, void *content)
+{
+	t_list *node;
+
+	node = (t_list *)malloc(sizeof(t_list));
+	node->content = content;
+	node->next = *b;
+	*b = node;
+}
+
+t_list *copy_list(t_list *head)
+{
+	if (head == NULL)
+		return NULL;
+	else
+	{
+		t_list *newNode;
+		newNode = (t_list *)malloc(sizeof(t_list));
+		newNode->content = head->content;
+		newNode->next = copy_list(head->next);
+		return (newNode);
+	}
+
+
+}
+
 int main(int argc, char **argv)
 {
 	//adding test commit
@@ -30,29 +56,44 @@ int main(int argc, char **argv)
 
 
 
-	t_list *stack_a_head;
+	t_list *stack_a;
 
 	t_list *stack_b;
 
-	//stack_a_head = (t_list *)ft_calloc(1, sizeof(t_list));
-	stack_a_head = NULL;
+	//stack_a = (t_list *)ft_calloc(1, sizeof(t_list));
+	stack_a = NULL;
 
 	if (argc <= 2)
 	{
-		freeList(stack_a_head);
+		freeList(stack_a);
 		exit(1);
 	}
 
-	stack_a_head = ft_error_handler(argv, stack_a_head);
+	stack_a = ft_error_handler(argv, stack_a);
+	stack_b = copy_list(stack_a);
+	printlist(stack_a);
+	printlist(stack_b);
+
+	reverse_rotate_a_b(&stack_a, &stack_b);
+	printlist(stack_a);
+	printlist(stack_b);
+	//reve
+	//printf("\n");
+	//printlist(stack_b);
+
+	//reverse_rotate_stack(&stack_a, "rra");
+	//printlist(stack_a);
+	//reverse_rotate_stack(&stack_a, "rra");
+	//printlist(stack_a);
+	//printlist(stack_a);
 
 
+	//printlist(stack_a);
+	//ft_argument_check(argv, stack_a);
+	//printf("Giberish %d\n", ((t_vars *)stack_a->content)->value);
 
-	//printlist(stack_a_head);
-	ft_argument_check(argv, stack_a_head);
-	printf("Giberish %d\n", ((t_vars *)stack_a_head->content)->value);
-
-	//printf("STACK A IS ->  %d", ((t_vars *)stack_a_head->content)->value);
-	//free(stack_a_head);
+	//printf("STACK A IS ->  %d", ((t_vars *)stack_a->content)->value);
+	//free(stack_a);
 
 	/*start_push(swap)
 

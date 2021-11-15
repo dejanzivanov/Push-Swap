@@ -11,18 +11,30 @@ void ft_argument_check(char **argv, t_list *list)
 
 	int argument_num;
 
-	argument_num = 0;
 	argument_num = ft_lstsize(list);
 	printf("Size list is %d \n", argument_num);
 
-	/*while (argv[argument_num])
-		argument_num++;
-	argument_num--; */
-	2
+	if (argument_num == 2)
+		ft_handle_two();
+	else if (argument_num == 3)
+		ft_handle_three();
+	else if (argument_num == 4)
+		ft_handle_four();
+	else if (argument_num == 5)
+		ft_handle_five();
+	else if (argument_num >= 5 && argument_num <= 100)
+		ft_handle_hundred();
+	else if (argument_num > 100)
+		ft_handle_five_hundred();
+
+
+
+
+	/*2
 	if (== 3)
 	if (5)
 	if (100)
-	if (500)
+	if (500)*/
 
 
 

@@ -10,8 +10,8 @@ void printlist(t_list *head)
 		//printf("INDEX IS : %d \n", *(temporary)->content->value);
 		//printf("INDEX IS : %d \n", *(*(temporary->content))->index);
 		//printf("VALUE IS : %d \n", (*(t_list *)temporary)->(t_vars *)content->value);
-		printf("VALUE IS : %d \n \n", ((t_vars *)temporary->content)->value);
-		printf("INDEX    : %d \n", ((t_vars *)temporary->content)->index);
+		printf("%d -> ", ((t_vars *)temporary->content)->value);
+		//printf("INDEX    : %d \n", ((t_vars *)temporary->content)->index);
 		//printf("idfag %d\n", head->(t_vars *)content->value);
 		//printf("idfag %d\n", ((t_list *)head)->content.value);
 		//printf("idfag %d\n", ((t_list *)head)->content->value);
@@ -20,6 +20,7 @@ void printlist(t_list *head)
 		//printf("I is: %d\n", i);
 		i++;
 	}
+	printf("NULL");
 	printf("\n");
 
 
