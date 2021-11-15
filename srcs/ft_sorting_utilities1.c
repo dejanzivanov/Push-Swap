@@ -14,7 +14,6 @@
 **	Only difference between RRB and RRA is print output
 **	and stack provided to function.
 */
-
 void	reverse_rotate_stack(t_list **stack, char *stack_name)
 {
 	//printlist(*stack_b);
@@ -57,4 +56,63 @@ void	reverse_rotate_a_b(t_list **stack_a,t_list **stack_b)
 	rrr_helper(stack_b);
 	ft_putendl_fd("rrr", 1);
 
+}
+
+/*
+**	This is SA/SB
+*/
+void	swap_a_b(t_list **stack, char* stack_name)
+{
+	//printlist(*stack);
+	//t_list       *temp;
+
+	//temp = *stack;
+	//((t_list *)stack)->next;
+	//(struct s_list *)stack = stack->next;
+	//temp->next = *stack;
+	//*stack = ((t_list *)stack)->next;
+	//((t_list *)stack)->next = temp;
+	//((t_list *)stack)->next = temp;
+	//*stack = temp;
+
+	t_list *tmp1;
+	t_list *tmp2;
+	t_list *tmp3;
+
+	tmp3 = (*stack)->next->next;
+	tmp2 = (*stack)->next;
+	tmp1 = *stack;
+
+	*stack = tmp2;
+	tmp2->next = tmp1;
+	tmp1->next = tmp3;
+
+
+
+
+
+
+	/*t_list *deki = *stack;
+	deki = ((t_list *)stack)->next;
+	((t_list *)stack)->next->next = deki->next;*/
+
+
+
+
+	//temp = ((t_list *)stack)->next;
+	//stack = ((t_list *)stack)->next;
+	//((t_list *)stack)->next = temp;
+	//*stack = temp->next->
+	//temp = ((t_vars *)((t_list *)stack)->content)->value;
+	//temp = ((t_vars *)((t_list *)*stack)->content)->value; ->this works
+	//temp = ((t_vars *)(*stack)->content)->value; -> this works
+	//temp = ((t_vars **)stack->content)->value;
+	//((t_vars *)temporary->content)->value
+
+
+	//printf("Temp is : %d\n", temp);
+	printlist(*stack);
+
+
+	ft_putendl_fd(stack_name, 1);
 }

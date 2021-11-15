@@ -72,11 +72,12 @@ int main(int argc, char **argv)
 	stack_a = ft_error_handler(argv, stack_a);
 	stack_b = copy_list(stack_a);
 	printlist(stack_a);
-	printlist(stack_b);
+	swap_a_b(&stack_a, "sa");
+	//printlist(stack_b);
 
-	reverse_rotate_a_b(&stack_a, &stack_b);
-	printlist(stack_a);
-	printlist(stack_b);
+	//reverse_rotate_a_b(&stack_a, &stack_b);
+	//printlist(stack_a);
+	//printlist(stack_b);
 	//reve
 	//printf("\n");
 	//printlist(stack_b);
@@ -166,7 +167,7 @@ int main(int argc, char **argv)
 **
 **	sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
 **	sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
-**	ss : sa and sb at the same time.
+**	ss` : sa and sb at the same time.
 **	pa : push a - take the first element at the top of b and put it at the top of a. Do nothing if b is empty.
 **	pb : push b - take the first element at the top of a and put it at the top of b. Do nothing if a is empty.
 **	ra : rotate a - shift up all elements of stack a by 1. The first element becomes the last one.
