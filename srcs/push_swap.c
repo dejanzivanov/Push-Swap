@@ -43,13 +43,30 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	ft_error_handler(argv, stack_a_head);
-	free(stack_a_head);
+	stack_a_head = ft_error_handler(argv, stack_a_head);
+
+
+
+	//printlist(stack_a_head);
+	ft_argument_check(argv, stack_a_head);
+	printf("Giberish %d\n", ((t_vars *)stack_a_head->content)->value);
+
+	//printf("STACK A IS ->  %d", ((t_vars *)stack_a_head->content)->value);
+	//free(stack_a_head);
 
 	/*start_push(swap)
 
 
-	if(number of test cases3)
+
+	//WE HAVE 4 TEST CASES
+	3 - 5 IFS - HARDCODED 5 IFS -> 2-3 ACTIONS SECOND
+
+	5 - 5 + IDK - ????
+	100 - ???
+	500 - ???
+
+
+	if(number of test cases3) - first testac
 		start1
 	101   	5 	0
 	5 		0 	101

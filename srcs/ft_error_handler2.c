@@ -10,7 +10,8 @@ void printlist(t_list *head)
 		//printf("INDEX IS : %d \n", *(temporary)->content->value);
 		//printf("INDEX IS : %d \n", *(*(temporary->content))->index);
 		//printf("VALUE IS : %d \n", (*(t_list *)temporary)->(t_vars *)content->value);
-		printf("VALUE IS : %d \n", ((t_vars *)temporary->content)->value);
+		printf("VALUE IS : %d \n \n", ((t_vars *)temporary->content)->value);
+		printf("INDEX    : %d \n", ((t_vars *)temporary->content)->index);
 		//printf("idfag %d\n", head->(t_vars *)content->value);
 		//printf("idfag %d\n", ((t_list *)head)->content.value);
 		//printf("idfag %d\n", ((t_list *)head)->content->value);
@@ -58,19 +59,12 @@ void check_if_sorted_list_is_sorted(t_list *head)
 	}
 	if (sorted == 0)
 	{
-		//freeList(head); //FUCK VLAD
-		//free(head);
-		//exit(1);
-		printf("ITS SORTED\n");
+		freeList(head);
+		exit(1);
 	}
-	else
-	{
-		printf("ITS NOT SORTED\n");
-	}
-
 }
 
-void	ft_sorted_handler(char **argv, t_list *list)
+t_list *ft_sorted_handler(char **argv, t_list *list)
 {
 	t_list *temp;
 	t_vars *temp2;
@@ -85,9 +79,10 @@ void	ft_sorted_handler(char **argv, t_list *list)
 
 	//list = ft_lstnew(ft_atoi(argv[1]));
 	//list->index = counter;
+
 	while (argv[i])
 	{
-		counter++;
+
 		j = ft_atoi(argv[i]);
 		temp2 = (t_vars *)ft_calloc(1, sizeof(t_vars));
 		temp2->value = j;
@@ -98,9 +93,9 @@ void	ft_sorted_handler(char **argv, t_list *list)
 		//temp->content = temp2;
 		ft_lstadd_back(&list, temp);
 		//printf("List is : %p", list->content);
+		counter++;
 		i++;
 	}
-
 	/*while (argv[i])
 	{
 		counter++;
@@ -110,9 +105,12 @@ void	ft_sorted_handler(char **argv, t_list *list)
 		ft_lstadd_back(&list, temp);
 		i++;
 	}*/
-	printlist(list);
+	//printlist(list);
 	check_if_sorted_list_is_sorted(list);
-	freeList(list);
+	//printlist(list);
+	//freeList(list);
+	//return (list);
+	return (list);
 }
 
 void freeList(t_list *head)
@@ -129,6 +127,8 @@ void freeList(t_list *head)
        free(tmp);
     }
 }
+
+
 
 
 

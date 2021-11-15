@@ -8,12 +8,13 @@ typedef struct s_vars
 	int		value;
 }			t_vars;
 
-
-
+void 	printlist(t_list *head);
+void ft_argument_check(char **argv, t_list *list);
 void	freeList(t_list *head);
-void	ft_sorted_handler(char **argv, t_list *list);
+t_list	*ft_sorted_handler(char **argv, t_list *list);
 void	ft_error_printer(t_list *list);
-void	ft_error_handler(char **argv, t_list *list);
+
+t_list	*ft_error_handler(char **argv, t_list *list);
 void	ft_int_range_handler(char **argv, t_list *list);
 void	ft_duplicate_handler(char **argv, t_list *list);
 

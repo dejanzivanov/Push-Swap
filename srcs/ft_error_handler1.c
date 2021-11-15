@@ -72,12 +72,13 @@ void	ft_duplicate_handler(char **argv, t_list *list)
 	}
 }
 
-void	ft_error_handler(char **argv, t_list *list)
+t_list *ft_error_handler(char **argv, t_list *list)
 {
 	ft_non_numeric_handler(argv, list);
 	ft_int_range_handler(argv, list);
 	ft_duplicate_handler(argv, list);
-	ft_sorted_handler(argv, list);
+	list = ft_sorted_handler(argv, list);
+	return (list);
 }
 
 /*
