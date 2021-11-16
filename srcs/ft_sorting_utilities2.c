@@ -47,6 +47,38 @@ void	push_b(t_list **stack_a, t_list **stack_b)
 	ft_putendl_fd("pb", 1);
 }
 
+int	ft_min_finder(t_list **stack_a)
+{
+	int	index;
+	int	min;
+	t_list *temp1;
+	t_list *temp2;
+	min = ((t_vars *)(*stack_a)->content)->value;
+	index = 0;
+	temp1 = *stack_a;
+	// temp2 = *stack_a;
+	while (temp1->next != NULL)
+	{
+		if (min > (((t_vars *)temp1->next->content)->value))
+		{
+			min = ((t_vars *)temp1->next->content)->value;
+			index = ((t_vars *)temp1->next->content)->index;
+		}
+
+		temp1 = temp1->next;
+	}
+	// printf("min: %d\n", min);
+	// if (min > (((t_vars *)temp1->next->content)->value))
+	// {
+	// 	printf("inside if: %d\n", min);
+	// 	min = ((t_vars *)temp1->content)->value;
+	// 	printf("inside2 if: %d\n", min);
+	// 	counter += 1;
+	// }
+	// *stack_a = temp2;
+	// printf("index = %d\n", index);
+	return (index);
+}
 
 
 //pb : push b - take the first element at the top of a and put it at the top of b. Do nothing if a is empty.

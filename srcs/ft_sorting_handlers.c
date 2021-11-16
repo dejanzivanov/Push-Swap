@@ -16,7 +16,7 @@ void ft_handle_two(t_list **stack_a)
 
 void ft_handle_three(t_list **stack_a)
 {
-		printlist(*stack_a);
+		// printlist(*stack_a);
 
 	int i[3];
 
@@ -69,15 +69,68 @@ void ft_handle_three(t_list **stack_a)
 			swap(stack_a, "sa");
 	}*/
 
-	printlist(*stack_a);
+	// printlist(*stack_a);
 
 
 	//printf("Starting to sort 3 arguments\n");
 }
 
-void ft_handle_four(void)
+void ft_handle_four(t_list **stack_a, t_list **stack_b)
 {
-	printf("Starting to sort 4 arguments\n");
+	int	counter;
+	// int i[4];
+	// t_list *temp1;
+	// t_list *temp2;
+	// i[0] = ((t_vars *)(*stack_a)->content)->value;
+	// i[1] = ((t_vars *)(*stack_a)->next->content)->value;
+	// i[2] = ((t_vars *)(*stack_b)->next->content)->value;
+	// i[3] = ((t_vars *)(*stack_a)->next->content)->value;
+
+	// push_b(stack_a, stack_b);
+	// push_b(stack_a, stack_b);
+	counter = ft_min_finder(stack_a);
+	// int	min;
+
+	// t_list *temp1;
+	// t_list *temp2;
+
+	// min = ((t_vars *)(*stack_a)->content)->value;
+	// counter = 0;
+	// temp1 = *stack_a;
+	// temp2 = *stack_a;
+	// while (temp1->next != NULL)
+	// {
+	// 	if (min > ((t_vars *)(*stack_a)->content)->value)
+	// 	{
+	// 		min = ((t_vars *)(*stack_a)->content)->value;
+	// 		counter += 1;
+	// 	}
+	// 	temp1 = temp1->next;
+	// }
+	// min = 0;
+	// *stack_a = temp2;
+
+	if (counter == 0)
+		push_b(stack_a, stack_b);
+	else if (counter == 1)
+	{
+		rotate_stack(stack_a, "ra");
+		push_b(stack_a, stack_b);
+	}
+	else if (counter == 2)
+	{
+		reverse_rotate_stack(stack_a, "rra");
+		reverse_rotate_stack(stack_a, "rra");
+		push_b(stack_a, stack_b);
+	}
+	else
+	{
+		reverse_rotate_stack(stack_a, "rra");
+		push_b(stack_a, stack_b);
+	}
+	ft_handle_three(stack_a);
+	push_a(stack_a, stack_b);
+	
 }
 
 void ft_handle_five(void)

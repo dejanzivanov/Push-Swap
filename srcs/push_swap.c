@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 	t_list *stack_a;
 
 	t_list *stack_b;
-
+	stack_b = NULL;
 	//stack_a = (t_list *)ft_calloc(1, sizeof(t_list));
 	stack_a = NULL;
 
@@ -104,9 +104,8 @@ int main(int argc, char **argv)
 	//printlist(stack_a);
 	// rotate_stack(**stack, char *operation);
 
-	//printlist(stack_a);
 	ft_argument_check(argv, &stack_a, &stack_b);
-	//printlist(stack_a);
+	printlist(stack_a);
 
 	return (0);
 

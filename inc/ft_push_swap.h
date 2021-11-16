@@ -10,7 +10,7 @@ typedef struct s_vars
 
 void	ft_handle_two(t_list **stack_a);
 void	ft_handle_three(t_list **stack_a);
-void	ft_handle_four(void);
+void 	ft_handle_four(t_list **stack_a, t_list **stack_b);
 void	ft_handle_five(void);
 void	ft_handle_hundred(void);
 void	ft_handle_five_hundred(void);
@@ -36,6 +36,7 @@ void	rr_helper(t_list **stack);
 void	rotate_a_b(t_list **stack_a,t_list **stack_b);//THIS IS RR;
 void	push_a(t_list **stack_a, t_list **stack_b); //THIS IS PA
 void	push_b(t_list **stack_a, t_list **stack_b); //THIS IS PB
+int		ft_min_finder(t_list **stack_a); //<------------ EXPERIMENTAL
 //rrb reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one.
 //reverse rotate a - shift down all elements of stack a by 1. The last element becomes the first one.
 
