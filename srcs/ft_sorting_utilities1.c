@@ -14,7 +14,7 @@
 **	Only difference between RRB and RRA is print output
 **	and stack provided to function.
 */
-void	reverse_rotate_stack(t_list **stack, char *stack_name)
+void	reverse_rotate_stack(t_list **stack, char *operation)
 {
 	//printlist(*stack_b);
 	//ft_lstadd_front(*stack_b, &stack_b);
@@ -43,7 +43,7 @@ void	reverse_rotate_stack(t_list **stack, char *stack_name)
 	// 	/* Change the head pointer to point to last node now */
 	// 	*stack = last;
 		rrr_helper(stack);
-		ft_putendl_fd(stack_name, 1);
+		ft_putendl_fd(operation, 1);
 	//}
 }
 
@@ -62,7 +62,7 @@ void	reverse_rotate_a_b(t_list **stack_a,t_list **stack_b)
 /*
 **	This is SA/SB
 */
-void	swap(t_list **stack, char* stack_name)
+void	swap(t_list **stack, char* operation)
 {
 	//printlist(*stack);
 	//t_list       *temp;
@@ -105,15 +105,15 @@ void	swap(t_list **stack, char* stack_name)
 	// printlist(*stack);
 
 	swap_helper(stack);
-	ft_putendl_fd(stack_name, 1);
+	ft_putendl_fd(operation, 1);
 }
 
 /*
 **	This is SS
 */
-void swap_a_b(t_list **stack_a, t_list **stack_b, char* stack_name)
+void swap_a_b(t_list **stack_a, t_list **stack_b)
 {
 	swap_helper(stack_a);
 	swap_helper(stack_b);
-	ft_putendl_fd(stack_name, 1);
+	ft_putendl_fd("ss", 1);
 }

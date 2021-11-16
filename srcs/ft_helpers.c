@@ -33,7 +33,9 @@ void	rrr_helper(t_list **stack)
 
 void swap_helper(t_list **stack)
 {
-		t_list *tmp1;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+	t_list *tmp1;
 	t_list *tmp2;
 	t_list *tmp3;
 
@@ -44,4 +46,26 @@ void swap_helper(t_list **stack)
 	*stack = tmp2;
 	tmp2->next = tmp1;
 	tmp1->next = tmp3;
+}
+
+//FIRST ELEM BECOMES LAST
+void rr_helper(t_list **stack)
+{
+	 /* If linked list is empty, or it contains only one node,
+      then nothing needs to be done, simply return */
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+	else
+	{
+		t_list *second = (*stack)->next;
+		t_list *third = (*stack)->next;
+		t_list *first = *stack;
+		first->next = NULL;
+		while (second->next != NULL)
+		{
+			second = second->next;
+		}
+		second->next = first;
+		*stack = third;
+	}
 }

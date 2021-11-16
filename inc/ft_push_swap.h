@@ -25,12 +25,15 @@ void	ft_int_range_handler(char **argv, t_list *list);
 void	ft_duplicate_handler(char **argv, t_list *list);
 
 
-void	reverse_rotate_stack(t_list **stack, char *stack_name); //This is RRA/RRB
+void	reverse_rotate_stack(t_list **stack, char *operation); //This is RRA/RRB
 void	rrr_helper(t_list **stack);
 void	reverse_rotate_a_b(t_list **stack_a,t_list **stack_b); //This is RRR
-void	swap(t_list **stack, char* stack_name); //This is SA/SB
-void	swap_a_b(t_list **stack_a, t_list **stack_b, char* stack_name); // THIS IS SS
+void	swap(t_list **stack, char* operation); //This is SA/SB
+void	swap_a_b(t_list **stack_a, t_list **stack_b); // THIS IS SS
 void	swap_helper(t_list **stack);
+void	rotate_stack(t_list **stack, char *operation);//THIS IS RA/RB;
+void	rr_helper(t_list **stack);
+void	rotate_a_b(t_list **stack_a,t_list **stack_b);//THIS IS RR;
 
 //rrb reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one.
 //reverse rotate a - shift down all elements of stack a by 1. The last element becomes the first one.
