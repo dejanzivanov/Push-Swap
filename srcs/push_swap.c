@@ -71,17 +71,28 @@ int main(int argc, char **argv)
 
 	stack_a = ft_error_handler(argv, stack_a);
 	stack_b = copy_list(stack_a);
+	//stack_b = NULL;
+
+	reverse_rotate_stack(&stack_b, "sb");
 	printlist(stack_a);
 	printlist(stack_b);
+
+	//push_a(&stack_a, &stack_b);
+	push_b(&stack_a, &stack_b);
+	printlist(stack_a);
+	printlist(stack_b);
+	//push_b(&stack_a, &stack_b);
+
+
 	// rotate_stack(&stack_a, "ra");
 	// reverse_rotate_a_b(&stack_a, &stack_b);
-	// reverse_rotate_stack(&stack_a, "sa");
+	//
 	// rotate_a_b(&stack_a, &stack_b);
 	// swap(&stack_a,"sa");
 	// swap(&stack_b, "sb");
-	swap_a_b(&stack_a, &stack_b);
-	printlist(stack_a);
-	printlist(stack_b);
+	//swap_a_b(&stack_a, &stack_b);
+	//printlist(stack_a);
+	//printlist(stack_b);
 	//reve
 	//printf("\n");
 	//printlist(stack_b);
@@ -123,9 +134,9 @@ int main(int argc, char **argv)
 **
 **	sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements). - DONE
 **	sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements). - DONE
-**	ss` : sa and sb at the same time. - DONE V
-**	pa : push a - take the first element at the top of a and put it at the top of a. Do nothing if b is empty.
-**	pb : push b - take the first element at the top of b and put it at the top of b. Do nothing if a is empty.
+**	ss : sa and sb at the same time. - DONE V
+**	pa : push a - take the first element at the top of b and put it at the top of a. Do nothing if b is empty.
+**	pb : push b - take the first element at the top of a and put it at the top of b. Do nothing if a is empty.
 **	ra : rotate a - shift up all elements of stack a by 1. The first element becomes the last one. - DONE
 **	rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one. - DONE
 **	rr : ra and rb at the same time. - DONE

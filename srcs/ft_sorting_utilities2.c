@@ -12,3 +12,41 @@ void rotate_a_b(t_list **stack_a,t_list **stack_b)
 	rr_helper(stack_b);
 	ft_putendl_fd("rr", 1);
 }
+
+void	push_a(t_list **stack_a, t_list **stack_b)
+{
+
+	if (ft_lstsize(*stack_b) == 0)
+		return;
+
+	t_list *temp1;
+	t_list *temp2;
+
+	temp1 = *stack_b;
+	temp2 = (*stack_b)->next;
+	temp1->next = *stack_a;
+	*stack_b = temp2;
+	*stack_a = temp1;
+	ft_putendl_fd("pa", 1);
+}
+
+void	push_b(t_list **stack_a, t_list **stack_b)
+{
+
+	if (ft_lstsize(*stack_a) == 0)
+		return;
+
+	t_list *temp1;
+	t_list *temp2;
+
+	temp1 = *stack_a;
+	temp2 = (*stack_a)->next;
+	temp1->next = *stack_b;
+	*stack_b = temp1;
+	*stack_a = temp2;
+	ft_putendl_fd("pb", 1);
+}
+
+
+
+//pb : push b - take the first element at the top of a and put it at the top of b. Do nothing if a is empty.

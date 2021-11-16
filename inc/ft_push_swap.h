@@ -34,7 +34,8 @@ void	swap_helper(t_list **stack);
 void	rotate_stack(t_list **stack, char *operation);//THIS IS RA/RB;
 void	rr_helper(t_list **stack);
 void	rotate_a_b(t_list **stack_a,t_list **stack_b);//THIS IS RR;
-
+void	push_a(t_list **stack_a, t_list **stack_b); //THIS IS PA
+void	push_b(t_list **stack_a, t_list **stack_b); //THIS IS PB
 //rrb reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one.
 //reverse rotate a - shift down all elements of stack a by 1. The last element becomes the first one.
 
@@ -42,7 +43,8 @@ void	rotate_a_b(t_list **stack_a,t_list **stack_b);//THIS IS RR;
 
 
 
-
+//pa : push a - take the first element at the top of b and put it at the top of a. Do nothing if b is empty.
+//pb : push b - take the first element at the top of a and put it at the top of b. Do nothing if a is empty.
 
 
 
@@ -51,13 +53,5 @@ void	rotate_a_b(t_list **stack_a,t_list **stack_b);//THIS IS RR;
 void	argument_handling(char **argv);
 void	error_handling(void); //error handler Already Sorted/Errong Handling / No Arguments
 
-void	sa(void);  //swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
-void	sb(void);  //swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
-void	ss(void);  //sa and sb at the same time.
-void	pa(void);  //push a - take the first element at the top of b and put it at the top of a. Do nothing if b is empty.
-
-void	pb(void);  //push b - take the first element at the top of a and put it at the top of b. Do nothing if a is empty.
-void	ra(void);  //rotate a - shift up all elements of stack a by 1. The first element becomes the last one.
-void	rb(void);  //rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
-void	rr(void);  //ra and rb at the same time.
-void	rrr(void); //rra and rrb at the same time.
+//void	pa(void);  //push a - take the first element at the top of b and put it at the top of a. Do nothing if b is empty.
+//void	pb(void);  //push b - take the first element at the top of a and put it at the top of b. Do nothing if a is empty.
