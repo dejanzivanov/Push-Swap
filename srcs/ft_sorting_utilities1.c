@@ -62,7 +62,7 @@ void	reverse_rotate_a_b(t_list **stack_a,t_list **stack_b)
 /*
 **	This is SA/SB
 */
-void	swap_a_b(t_list **stack, char* stack_name)
+void	swap(t_list **stack, char* stack_name)
 {
 	//printlist(*stack);
 	//t_list       *temp;
@@ -76,17 +76,7 @@ void	swap_a_b(t_list **stack, char* stack_name)
 	//((t_list *)stack)->next = temp;
 	//*stack = temp;
 
-	t_list *tmp1;
-	t_list *tmp2;
-	t_list *tmp3;
 
-	tmp3 = (*stack)->next->next;
-	tmp2 = (*stack)->next;
-	tmp1 = *stack;
-
-	*stack = tmp2;
-	tmp2->next = tmp1;
-	tmp1->next = tmp3;
 
 
 
@@ -112,8 +102,18 @@ void	swap_a_b(t_list **stack, char* stack_name)
 
 
 	//printf("Temp is : %d\n", temp);
-	printlist(*stack);
+	// printlist(*stack);
 
+	swap_helper(stack);
+	ft_putendl_fd(stack_name, 1);
+}
 
+/*
+**	This is SS
+*/
+void swap_a_b(t_list **stack_a, t_list **stack_b, char* stack_name)
+{
+	swap_helper(stack_a);
+	swap_helper(stack_b);
 	ft_putendl_fd(stack_name, 1);
 }

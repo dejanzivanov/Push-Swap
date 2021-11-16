@@ -30,3 +30,18 @@ void	rrr_helper(t_list **stack)
 		*stack = last;
 	}
 }
+
+void swap_helper(t_list **stack)
+{
+		t_list *tmp1;
+	t_list *tmp2;
+	t_list *tmp3;
+
+	tmp3 = (*stack)->next->next;
+	tmp2 = (*stack)->next;
+	tmp1 = *stack;
+
+	*stack = tmp2;
+	tmp2->next = tmp1;
+	tmp1->next = tmp3;
+}
