@@ -77,7 +77,8 @@ void ft_handle_three(t_list **stack_a)
 
 void ft_handle_four(t_list **stack_a, t_list **stack_b)
 {
-	int	counter;
+	// printf("HANDLE FUCKING 4 \n");
+	int	index;
 	// int i[4];
 	// t_list *temp1;
 	// t_list *temp2;
@@ -88,14 +89,15 @@ void ft_handle_four(t_list **stack_a, t_list **stack_b)
 
 	// push_b(stack_a, stack_b);
 	// push_b(stack_a, stack_b);
-	counter = ft_min_finder(stack_a);
+	index = ft_min_finder(stack_a);
+
 	// int	min;
 
 	// t_list *temp1;
 	// t_list *temp2;
 
 	// min = ((t_vars *)(*stack_a)->content)->value;
-	// counter = 0;
+	// index = 0;
 	// temp1 = *stack_a;
 	// temp2 = *stack_a;
 	// while (temp1->next != NULL)
@@ -103,21 +105,58 @@ void ft_handle_four(t_list **stack_a, t_list **stack_b)
 	// 	if (min > ((t_vars *)(*stack_a)->content)->value)
 	// 	{
 	// 		min = ((t_vars *)(*stack_a)->content)->value;
-	// 		counter += 1;
+	// 		index += 1;
 	// 	}
 	// 	temp1 = temp1->next;
 	// }
 	// min = 0;
 	// *stack_a = temp2;
 
-	if (counter == 0)
+	if (index == 0)
 		push_b(stack_a, stack_b);
-	else if (counter == 1)
+	else if (index == 1)
 	{
 		rotate_stack(stack_a, "ra");
 		push_b(stack_a, stack_b);
 	}
-	else if (counter == 2)
+	else if (index == 2)
+	{
+		reverse_rotate_stack(stack_a, "rra");
+		reverse_rotate_stack(stack_a, "rra");
+		push_b(stack_a, stack_b);
+	}
+	else if (index == 3)
+	{
+		reverse_rotate_stack(stack_a, "rra");
+		push_b(stack_a, stack_b);
+	}
+	ft_handle_three(stack_a);
+	// printlist(*stack_a);
+	// printlist(*stack_b);
+	push_a(stack_a, stack_b);
+}
+
+void ft_handle_five(t_list **stack_a, t_list **stack_b)
+{
+	// printlist(*stack_a);
+	// printlist(*stack_b);
+	int	index;
+	// printlist(*stack_a);
+	index = ft_min_finder(stack_a);
+	if (index == 0)
+		push_b(stack_a, stack_b);
+	else if (index == 1)
+	{
+		rotate_stack(stack_a, "ra");
+		push_b(stack_a, stack_b);
+	}
+	else if (index == 2)
+	{
+		rotate_stack(stack_a, "rra");
+		rotate_stack(stack_a, "rra");
+		push_b(stack_a, stack_b);
+	}
+	else if (index == 3)
 	{
 		reverse_rotate_stack(stack_a, "rra");
 		reverse_rotate_stack(stack_a, "rra");
@@ -128,14 +167,13 @@ void ft_handle_four(t_list **stack_a, t_list **stack_b)
 		reverse_rotate_stack(stack_a, "rra");
 		push_b(stack_a, stack_b);
 	}
-	ft_handle_three(stack_a);
+	// printlist(*stack_a);
+	// ft_index_update(stack_a);
+	// ft_index_update(stack_b);
+	ft_handle_four(stack_a, stack_b);
 	push_a(stack_a, stack_b);
-	
-}
-
-void ft_handle_five(void)
-{
-	printf("Starting to sort 5 arguments\n");
+	// printlist(*stack_a);
+	// printlist(*stack_b);
 }
 
 void ft_handle_hundred(void)
