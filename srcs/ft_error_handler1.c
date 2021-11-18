@@ -2,29 +2,28 @@
 
 void	ft_error_printer(t_list *list)
 {
-	write(2,"Error\n", 6);
-	//free(list);
-	freeList(list);
+	write(2, "Error\n", 6);
+	ft_free_list(list);
 	free(list);
 	exit(EXIT_FAILURE);
 }
 
 void	ft_non_numeric_handler(char **argv, t_list *list)
 {
-	int i;
-	int j;
-	long k;
+	int		i;
+	int		j;
+	long	k;
 
 	i = 1;
 	j = 0;
 	k = 0;
 	while (argv[i])
 	{
-		if((ft_strlen(argv[i]) == 1) && (argv[i][0] == '0'))
+		if ((ft_strlen(argv[i]) == 1) && (argv[i][0] == '0'))
 			k = ft_atoi((argv[i]));
 		else
 			k = ft_atoi_special((argv[i]));
-		if (k == 2147483649 || k > INT_MAX )
+		if (k == 2147483649 || k > INT_MAX)
 			ft_error_printer(list);
 		i++;
 	}
@@ -32,8 +31,8 @@ void	ft_non_numeric_handler(char **argv, t_list *list)
 
 void	ft_int_range_handler(char **argv, t_list *list)
 {
-	int i;
-	long j;
+	int		i;
+	long	j;
 
 	i = 1;
 	j = 0;
@@ -48,10 +47,10 @@ void	ft_int_range_handler(char **argv, t_list *list)
 
 void	ft_duplicate_handler(char **argv, t_list *list)
 {
-	int i;
-	int j;
-	int k;
-	int l;
+	int	i;
+	int	j;
+	int	k;
+	int	l;
 
 	i = 1;
 	k = 2;
@@ -59,7 +58,6 @@ void	ft_duplicate_handler(char **argv, t_list *list)
 	while (argv[i])
 	{
 		j = ft_atoi(argv[i]);
-
 		while (argv[k])
 		{
 			l = ft_atoi(argv[k]);
@@ -72,7 +70,7 @@ void	ft_duplicate_handler(char **argv, t_list *list)
 	}
 }
 
-t_list *ft_error_handler(char **argv, t_list *list)
+t_list	*ft_error_handler(char **argv, t_list *list)
 {
 	ft_non_numeric_handler(argv, list);
 	ft_int_range_handler(argv, list);

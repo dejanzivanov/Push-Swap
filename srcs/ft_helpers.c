@@ -2,70 +2,70 @@
 
 void	rrr_helper(t_list **stack)
 {
-		//printlist(*stack_b);
-	//ft_lstadd_front(*stack_b, &stack_b);
+	t_list	*second_last;
+	t_list	*last;
 
-	 /* If linked list is empty, or it contains only one node,
-      then nothing needs to be done, simply return */
+	second_last = NULL;
+	last = *stack;
 	if (*stack == NULL || (*stack)->next == NULL)
-		return;
+		return ;
 	else
 	{
-		/* Initialize second last and last pointers */
-		t_list *second_last = NULL;
-		t_list *last = *stack;
-
-		/*After this loop secLast contains address of second last
-		node and last contains address of last node in Linked List */
 		while (last->next != NULL)
 		{
 			second_last = last;
 			last = last->next;
 		}
-		/* Set the next of second last as NULL */
 		second_last->next = NULL;
-		/* Set next of last as head node */
 		last->next = *stack;
-		/* Change the head pointer to point to last node now */
 		*stack = last;
 	}
 }
 
-void swap_helper(t_list **stack)
+void	swap_helper(t_list **stack)
 {
-	if (*stack == NULL || (*stack)->next == NULL)
-		return;
-	t_list *tmp1;
-	t_list *tmp2;
-	t_list *tmp3;
+	t_list	*tmp1;
+	t_list	*tmp2;
+	t_list	*tmp3;
 
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
 	tmp3 = (*stack)->next->next;
 	tmp2 = (*stack)->next;
 	tmp1 = *stack;
-
 	*stack = tmp2;
 	tmp2->next = tmp1;
 	tmp1->next = tmp3;
 }
 
-//FIRST ELEM BECOMES LAST
-void rr_helper(t_list **stack)
+/*
+**	FIRST ELEM BECOMES LAST
+*/
+
+void	rr_helper(t_list **stack)
 {
-	 /* If linked list is empty, or it contains only one node,
-      then nothing needs to be done, simply return */
+	t_list	*second;
+	t_list	*third;
+	t_list	*first;
+
+	second = (*stack)->next;
+	third = (*stack)->next;
+	first = *stack;
 	if (*stack == NULL || (*stack)->next == NULL)
-		return;
+		return ;
 	else
 	{
-		t_list *second = (*stack)->next;
-		t_list *third = (*stack)->next;
-		t_list *first = *stack;
 		first->next = NULL;
 		while (second->next != NULL)
-		{
 			second = second->next;
-		}
 		second->next = first;
 		*stack = third;
 	}
+}
+
+void	ft_reverse_rotate_helper(t_list **stack_a, t_list **stack_b)
+{
+	reverse_rotate_stack(stack_a, "rra");
+	reverse_rotate_stack(stack_a, "rra");
+	push_b(stack_a, stack_b);
 }
