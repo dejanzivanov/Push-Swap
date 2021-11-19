@@ -91,6 +91,7 @@ void	ft_handle_five(t_list **stack_a, t_list **stack_b)
 	}
 	ft_handle_four(stack_a, stack_b);
 	push_a(stack_a, stack_b);
+	printlist(*stack_a);
 }
 
 void	ft_handle_hundred(void)
