@@ -12,7 +12,7 @@ void	printlist(t_list *head)
 		//printf("%d -> ", ((t_vars *)temporary->content)->value);
 		//ft_put_nbrbase((((t_vars *)temporary->content)->value), "01");
 		//write(1, "\n", 1);
-		printf(" is and the value is %d -> ", ((t_vars *)temporary->content)->value);
+		printf(" %d -> ", ((t_vars *)temporary->content)->value);
 		//printf("Sorted Index is %d -> ", ((t_vars *)temporary->content)->sorted_index);
 		//printf("Sorted Index is %s -> ", ((t_vars *)temporary->content)->bin_num);
 		temporary = temporary->next;

@@ -44,23 +44,34 @@ void	swap_helper(t_list **stack)
 
 void	rr_helper(t_list **stack)
 {
-	t_list	*second;
-	t_list	*third;
-	t_list	*first;
+	// t_list	*second;
+	// t_list	*third;
+	// t_list	*first;
 
-	second = (*stack)->next;
-	third = (*stack)->next;
-	first = *stack;
-	if (*stack == NULL || (*stack)->next == NULL)
-		return ;
-	else
-	{
-		first->next = NULL;
-		while (second->next != NULL)
-			second = second->next;
-		second->next = first;
-		*stack = third;
-	}
+	// second = (*stack)->next;
+	// third = (*stack)->next;
+	// first = *stack;
+	// if (*stack == NULL || (*stack)->next == NULL)
+	// 	return ;
+	// else
+	// {
+	// 	first->next = NULL;
+	// 	while (second->next != NULL)
+	// 		second = second->next;
+	// 	second->next = first;
+	// 	*stack = third;
+	// }
+    t_list *elem1;
+    t_list *elem2;
+
+    if (*stack == NULL || (*stack)->next == NULL)
+        return ;
+    elem1 = (*stack)->next;
+    elem2 = *stack;
+    ft_lstadd_back(stack, *stack);
+    elem2->next = NULL;
+    *stack = elem1;
+
 }
 
 void	ft_reverse_rotate_helper(t_list **stack_a, t_list **stack_b)

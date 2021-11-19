@@ -137,7 +137,7 @@ int	main(int argc, char **argv)
 		exit(1);
 	}
 	stack_a = ft_error_handler(argv, stack_a);
-	printlist(stack_a);
+	// printlist(stack_a);
 	values = ft_calloc(ft_lstsize(stack_a), sizeof(int));
 	counter = stack_a;
 	//printf("Size list is: %d", ft_lstsize(stack_a));
@@ -148,11 +148,7 @@ int	main(int argc, char **argv)
 		counter = (*counter).next;
 		i++;
 	}
-	//printf("Counter is: %d\n", ft_lstsize(counter));
 	bubbleSort(values, i);
-	//printf("Sorted array: \n");
-	//printf("Size list is: %d\n", ft_lstsize(counter));
-	//printf("Arraj value is %d", values[4]);
 
 
 	while (j  < i )
@@ -162,7 +158,7 @@ int	main(int argc, char **argv)
 			if (values[j] == ((t_vars *)(*counter).content)->value)
 			{
 				((t_vars *)(*counter).content)->sorted_index = j;
-				printf("J is : %d and index is %d \n", j , ((t_vars *)(*counter).content)->sorted_index);
+				// printf("J is : %d and index is %d \n", j , ((t_vars *)(*counter).content)->sorted_index);
 				((t_vars *)(*counter).content)->bin_num = ft_put_nbrbase(j, "01");
 			}
 
@@ -179,7 +175,7 @@ int	main(int argc, char **argv)
 	{
 		//printf("Sorted Index is %d -> \n", ((t_vars *)counter->content)->sorted_index);
 		//printf("Value        is %d -> \n", ((t_vars *)counter->content)->value);
-		printf("Value        is %s -> \n", ((t_vars *)counter->content)->bin_num);
+		// printf("Value        is %s -> \n", ((t_vars *)counter->content)->bin_num);
 		counter = counter->next;
 	}
 
@@ -189,6 +185,7 @@ int	main(int argc, char **argv)
 
 
 	ft_argument_check(argv, &stack_a, &stack_b);
+	printlist(stack_a);
 	return (0);
 }
 

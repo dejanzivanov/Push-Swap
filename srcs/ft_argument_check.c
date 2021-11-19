@@ -14,7 +14,7 @@ void	ft_argument_check(char **argv, t_list **stack_a, t_list **stack_b)
 	else if (argument_num == 5)
 		ft_handle_five(stack_a, stack_b);
 	else if (argument_num > 5 && argument_num <= 100)
-		ft_handle_hundred();
+		ft_handle_hundred(stack_a, stack_b);
 	else if (argument_num > 100)
 		ft_handle_five_hundred();
 }

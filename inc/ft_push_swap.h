@@ -19,7 +19,7 @@ void	ft_handle_two(t_list **stack_a);
 void	ft_handle_three(t_list **stack_a);
 void 	ft_handle_four(t_list **stack_a, t_list **stack_b);
 void	ft_handle_five(t_list **stack_a, t_list **stack_b);
-void	ft_handle_hundred(void);
+void	ft_handle_hundred(t_list **stack_a, t_list **stack_b);
 void	ft_handle_five_hundred(void);
 void 	printlist(t_list *head);
 void	ft_argument_check(char **argv, t_list **stack_a, t_list **stack_b);

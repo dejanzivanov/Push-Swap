@@ -91,10 +91,72 @@ void	ft_handle_five(t_list **stack_a, t_list **stack_b)
 	}
 	ft_handle_four(stack_a, stack_b);
 	push_a(stack_a, stack_b);
-	printlist(*stack_a);
 }
 
-void	ft_handle_hundred(void)
+void	ft_handle_hundred(t_list **stack_a, t_list **stack_b)
 {
 	printf("Starting to sort 100 arguments\n");
+
+
+	t_list *temp;
+	// t_list *temp2;
+	int nav;
+	int	max;
+	int	bits;
+	int	i;
+
+	bits = 0;
+	nav = 0;
+	i = 0;
+	temp = *stack_a;
+	max = ((t_vars *)(temp)->content)->value;
+	while (temp->next != NULL )
+	{
+		if (max < ((t_vars *)(temp)->next->content)->value)
+			max = ((t_vars *)(temp)->next->content)->value;
+		temp = temp->next;
+	}
+	// max-=1;
+	// printf("MAX = %d\n", max);
+	while((max>>bits) != 0)
+	{
+		printf("max>>bits = %d\n", max>>bits);
+		bits++;
+	}
+	while (i < bits)
+	{
+		while (nav < ft_lstsize(*stack_a))
+		{
+			if(((t_vars *)(*stack_a)->content)->sorted_index 
+				>>i &1 == 1)
+				{
+					rotate_stack(stack_a, "ra");
+					// printlist(temp);
+					// printlist(temp2);
+				}
+			else
+				{
+					push_b(stack_a, stack_b);
+					// printlist(temp);
+					// printlist(temp2);
+				}
+			nav += 1;
+		}
+		printf("BEFORE:\n");
+		printlist(*stack_a);
+		printlist(*stack_b);
+		nav = 0;
+		// temp = *stack_a;
+		// printf("TEMP AFTER REASIGNMENT:\n");
+		// printlist(temp);
+		while (nav <= ft_lstsize(*stack_b))
+		{
+			push_a(stack_a, stack_b);
+			nav += 1;
+		}
+		printf("AFTER:\n");
+		printlist(*stack_a);
+		printlist(*stack_b);
+		i++;
+	}
 }
