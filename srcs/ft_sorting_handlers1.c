@@ -142,21 +142,21 @@ void	ft_handle_hundred(t_list **stack_a, t_list **stack_b)
 				}
 			nav += 1;
 		}
-		printf("BEFORE:\n");
-		printlist(*stack_a);
-		printlist(*stack_b);
+		// printf("BEFORE:\n");
+		// printlist(*stack_a);
+		// printlist(*stack_b);
 		nav = 0;
 		// temp = *stack_a;
 		// printf("TEMP AFTER REASIGNMENT:\n");
 		// printlist(temp);
-		while (nav <= ft_lstsize(*stack_b))
+		while (nav < ft_lstsize(*stack_b))
 		{
 			push_a(stack_a, stack_b);
-			nav += 1;
+			// nav += 1;
 		}
-		printf("AFTER:\n");
-		printlist(*stack_a);
-		printlist(*stack_b);
+		// printf("AFTER:\n");
+		// printlist(*stack_a);
+		// printlist(*stack_b);
 		i++;
 	}
 }
