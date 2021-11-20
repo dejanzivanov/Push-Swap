@@ -1,6 +1,6 @@
 clear
 make
-ARG=`ruby -e 'puts (0..99).to_a.shuffle.join(" ")'`;
+ARG=`ruby -e 'puts (0..499).to_a.shuffle.join(" ")'`;
 # $>ARG="<100 random values>"
 # ARG="<100 random values>"; ./push_swap $ARG
 clear

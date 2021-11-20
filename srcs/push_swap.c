@@ -41,13 +41,15 @@ int	ft_print_base(int nbr, char *base, int base_len)
 	return (counter);
 }
 
-void	ft_print_base2(int nbr, char *base, int base_len, char *str, int i)
+void	ft_print_base2(int nbr, char *base, char *str, int i)
 {
 	int	counter;
+	int	base_len;
 
+	base_len = ft_strlen(base);
 	counter = 1;
 	if (nbr / base_len > 0)
-		ft_print_base2(nbr / base_len, base, base_len, str, i + 1);
+		ft_print_base2(nbr / base_len, base, str, i + 1);
 	str[i] = *ft_itoa(nbr % base_len);
 }
 
@@ -61,7 +63,7 @@ char	*ft_put_nbrbase(int nbr, char *base)
 	if (ft_check_base(base, base_len, 0, 1))
 		value = ft_print_base(nbr, base, base_len);
 	str = ft_calloc(sizeof(value) + 1, 1);
-	ft_print_base2(nbr, base, base_len, str, 0);
+	ft_print_base2(nbr, base, str, 0);
 	reverse(str, 0, ft_strlen(str)-1);
 	return (str);
 }
