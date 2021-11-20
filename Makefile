@@ -15,7 +15,7 @@ SRCD		=	./srcs/
 
 SRC 		=	push_swap.c ft_error_handler1.c ft_error_handler2.c ft_argument_check.c \
 				ft_sorting_handlers1.c ft_sorting_utilities1.c ft_helpers.c ft_sorting_utilities2.c \
-				ft_sorting_utilities3.c ft_sorting_handlers2.c
+				ft_sorting_utilities3.c ft_sorting_handlers2.c ft_sorting_helper.c
 SRCS_FILES	= $(addprefix $(SRCD),$(SRC))
 OBJD		= ./obj/
 
