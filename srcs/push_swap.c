@@ -35,18 +35,13 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 	int		*values;
 	int		i;
-	int		j;
 	t_list	*counter;
 
 	stack_b = NULL;
 	stack_a = NULL;
 	i = 0;
-	j = 0;
 	if (argc <= 2)
-	{
-		ft_free_list(stack_a);
-		exit(1);
-	}
+		ft_close_program(stack_a);
 	stack_a = ft_error_handler(argv, stack_a);
 	values = ft_calloc(ft_lstsize(stack_a), sizeof(int));
 	counter = stack_a;
@@ -57,24 +52,7 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	ft_bubble_sort(values, i);
-	while (j < i)
-	{
-		counter = stack_a;
-		while (counter)
-		{
-			if (values[j] == ((t_vars *)(*counter).content)->value)
-			{
-				((t_vars *)(*counter).content)->sorted_index = j;
-				((t_vars *)(*counter).content)->bin_num
-					= ft_put_nbrbase(j, "01");
-			}
-			counter = (*counter).next;
-		}
-		j++;
-	}
-	counter = stack_a;
-	while (counter != NULL)
-		counter = counter->next;
+	ft_binary_assignment(i, &stack_a, values);
 	ft_argument_check(argv, &stack_a, &stack_b);
 	return (0);
 }
