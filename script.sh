@@ -6,7 +6,7 @@ ARG=`ruby -e 'puts (1000..1099).to_a.shuffle.join(" ")'`;
 clear
 #valgrind ./push_swap $ARG
 #./push_swap $ARG
-#./push_swap $ARG | wc -l
-./push_swap $ARG | ./checker_linux $ARG
+./push_swap $ARG | wc -l
+# ./push_swap $ARG | ./checker_linux $ARG
 
 # echo $ARG
