@@ -1,6 +1,5 @@
 #include "../libft/incl/libft.h"
 #include <limits.h>
-#include <stdio.h> //REMOVE THIS
 
 typedef struct s_vars
 {
@@ -11,7 +10,6 @@ typedef struct s_vars
 }			t_vars;
 
 int		ft_is_sorted(t_list **stack_a);
-void	printlist5(t_list *head);
 void	ft_reverse_rotate_helper(t_list **stack_a, t_list **stack_b);
 char	*ft_put_nbrbase(int nbr, char *base);
 int		ft_print_base(int nbr, char *base, int base_len); //delete this
@@ -22,7 +20,6 @@ void 	ft_handle_four(t_list **stack_a, t_list **stack_b);
 void	ft_handle_five(t_list **stack_a, t_list **stack_b);
 void	ft_handle_hundred(t_list **stack_a, t_list **stack_b);
 void    ft_handle_five_hundred(t_list **stack_a, t_list **stack_b);
-void 	printlist(t_list *head);
 void	ft_argument_check(char **argv, t_list **stack_a, t_list **stack_b);
 void	ft_free_list(t_list *head);
 t_list	*ft_sorted_handler(char **argv, t_list *list);

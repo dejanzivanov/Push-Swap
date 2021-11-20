@@ -95,7 +95,7 @@ void	ft_handle_five(t_list **stack_a, t_list **stack_b)
 
 int	ft_is_sorted(t_list **stack_a)
 {
-		t_list	*temporary;
+	t_list	*temporary;
 	int		values[3];
 
 	temporary = *stack_a;
@@ -120,62 +120,51 @@ int	ft_is_sorted(t_list **stack_a)
 		return (0);
 }
 
-void    ft_handle_hundred(t_list **stack_a, t_list **stack_b)
+void	ft_handle_hundred(t_list **stack_a, t_list **stack_b)
 {
-    //printf("Starting to sort 100 arguments\n");
+	t_list	*temp;
+	int		nav;
+	int		max;
+	int		bits;
+	int		i;
+	int		counter;
 
-
-    t_list *temp;
-    int nav;
-    int    max;
-    int    bits;
-    int    i;
-    int counter;
-
-    counter = 0;
-    bits = 0;
-    nav = 0;
-    i = 0;
-    temp = *stack_a;
-    max = ((t_vars *)(temp)->content)->value;
-    while (temp->next != NULL )
-    {
-        if (max < ((t_vars *)(temp)->next->content)->value)
-            max = ((t_vars *)(temp)->next->content)->value;
-        temp = temp->next;
-    }
-    // max-=1;
-    while((max>>bits) != 0)
-    {
-
-        bits++;
-    }
-    bits++;
-    while (i < bits)
-    {
-        counter = ft_lstsize(*stack_a);
-        nav = 0;
-        while (nav < counter)
-        {
-            if((((t_vars *)(*stack_a)->content)->sorted_index)>>i&1 == 1)
-                {
-                    rotate_stack(stack_a, "ra");
-                }
-            else
-                {
-                    push_b(stack_a, stack_b);
-                }
-            nav += 1;
-        }
-        nav = 0;
-        counter = ft_lstsize(*stack_b);
-        while (nav < counter)
-        {
-            push_a(stack_a, stack_b);
-             nav += 1;
-        }
-		if(ft_is_sorted(stack_a) == 1)
+	counter = 0;
+	bits = 0;
+	nav = 0;
+	i = 0;
+	temp = *stack_a;
+	max = ((t_vars *)(temp)->content)->value;
+	while (temp->next != NULL )
+	{
+		if (max < ((t_vars *)(temp)->next->content)->value)
+			max = ((t_vars *)(temp)->next->content)->value;
+		temp = temp->next;
+	}
+	while ((max >> bits) != 0)
+		bits++;
+	bits++;
+	while (i < bits)
+	{
+		counter = ft_lstsize(*stack_a);
+		nav = 0;
+		while (nav < counter)
+		{
+			if ((((t_vars *)(*stack_a)->content)->sorted_index) >> i & 1 == 1)
+				rotate_stack(stack_a, "ra");
+			else
+				push_b(stack_a, stack_b);
+			nav += 1;
+		}
+		nav = 0;
+		counter = ft_lstsize(*stack_b);
+		while (nav < counter)
+		{
+			push_a(stack_a, stack_b);
+			nav += 1;
+		}
+		if (ft_is_sorted(stack_a) == 1)
 			break ;
-        i++;
-    }
+		i++;
+	}
 }

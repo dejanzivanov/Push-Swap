@@ -1,50 +1,5 @@
 #include "../inc/ft_push_swap.h"
 
-void	printlist(t_list *head)
-{
-	t_list	*temporary;
-	int		i;
-
-	temporary = head;
-	i = 0;
-	while (temporary != NULL)
-	{
-		//printf("%d -> ", ((t_vars *)temporary->content)->value);
-		//ft_put_nbrbase((((t_vars *)temporary->content)->value), "01");
-		//write(1, "\n", 1);
-		printf(" %d -> ", ((t_vars *)temporary->content)->value);
-		//printf("Sorted Index is %d -> ", ((t_vars *)temporary->content)->sorted_index);
-		//printf("Sorted Index is %s -> ", ((t_vars *)temporary->content)->bin_num);
-		temporary = temporary->next;
-		i++;
-	}
-	printf("NULL");
-	printf("\n");
-}
-
-
-void	printlist5(t_list *head)
-{
-	t_list	*temporary;
-	int		i;
-
-	temporary = head;
-	i = 0;
-	while (temporary != NULL)
-	{
-		//printf("%d -> ", ((t_vars *)temporary->content)->value);
-		//ft_put_nbrbase((((t_vars *)temporary->content)->value), "01");
-		//write(1, "\n", 1);
-		//printf(" is and the value is %d -> ", ((t_vars *)temporary->content)->value);
-		//printf("Sorted Index is %d -> ", ((t_vars *)temporary->content)->sorted_index);
-		printf("Sorted Index is %s -> ", ((t_vars *)temporary->content)->bin_num);
-		temporary = temporary->next;
-		i++;
-	}
-	printf("NULL");
-	printf("\n");
-}
-
 /*
 **	i[0] - Value1
 **	i[1] - Value2
