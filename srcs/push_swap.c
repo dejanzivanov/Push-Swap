@@ -1,6 +1,6 @@
 #include "../inc/ft_push_swap.h"
 
-void	swap1(int *xp, int *yp)
+void	ft_swap1(int *xp, int *yp)
 {
 	int	temp;
 
@@ -9,7 +9,7 @@ void	swap1(int *xp, int *yp)
 	*yp = temp;
 }
 
-void	bubblesort(int arr[], int n)
+void	ft_bubble_sort(int arr[], int n)
 {
 	int	i;
 	int	j;
@@ -22,7 +22,7 @@ void	bubblesort(int arr[], int n)
 		while (j < n - i - 1)
 		{
 			if (arr[j] > arr[j + 1])
-				swap1(&arr[j], &arr[j + 1]);
+				ft_swap1(&arr[j], &arr[j + 1]);
 			j += 1;
 		}
 		i += 1;
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 		counter = (*counter).next;
 		i++;
 	}
-	bubblesort(values, i);
+	ft_bubble_sort(values, i);
 	while (j < i)
 	{
 		counter = stack_a;
