@@ -2,7 +2,7 @@
 
 void    ft_handle_five_hundred(t_list **stack_a, t_list **stack_b)
 {
-    printf("Starting to sort 500 arguments\n");
+    //printf("Starting to sort 500 arguments\n");
 
 
     t_list *temp;
@@ -53,6 +53,8 @@ void    ft_handle_five_hundred(t_list **stack_a, t_list **stack_b)
             push_a(stack_a, stack_b);
              nav += 1;
         }
+		if(ft_is_sorted(stack_a) == 1)
+			break ;
         i++;
     }
 }

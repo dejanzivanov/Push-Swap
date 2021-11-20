@@ -185,7 +185,7 @@ int	main(int argc, char **argv)
 
 
 	ft_argument_check(argv, &stack_a, &stack_b);
-	printlist(stack_a);
+	//printlist(stack_a);
 	return (0);
 }
 

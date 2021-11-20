@@ -10,6 +10,7 @@ typedef struct s_vars
 	char	*bin_num; //memory leeks consider on exxit
 }			t_vars;
 
+int		ft_is_sorted(t_list **stack_a);
 void	printlist5(t_list *head);
 void	ft_reverse_rotate_helper(t_list **stack_a, t_list **stack_b);
 char	*ft_put_nbrbase(int nbr, char *base);

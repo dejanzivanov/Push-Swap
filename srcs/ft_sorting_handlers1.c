@@ -93,9 +93,36 @@ void	ft_handle_five(t_list **stack_a, t_list **stack_b)
 	push_a(stack_a, stack_b);
 }
 
+int	ft_is_sorted(t_list **stack_a)
+{
+		t_list	*temporary;
+	int		values[3];
+
+	temporary = *stack_a;
+	values[0] = 0;
+	values[1] = 0;
+	values[2] = 0;
+	while (temporary != NULL)
+	{
+		values[0] = ((t_vars *)temporary->content)->value;
+		temporary = temporary->next;
+		if (temporary != NULL)
+			values[1] = ((t_vars *)temporary->content)->value;
+		if (temporary != NULL)
+		{
+			if (!(values[0] < values[1]))
+				values[2]++;
+		}
+	}
+	if (values[2] == 0)
+		return (1);
+	else
+		return (0);
+}
+
 void    ft_handle_hundred(t_list **stack_a, t_list **stack_b)
 {
-    printf("Starting to sort 100 arguments\n");
+    //printf("Starting to sort 100 arguments\n");
 
 
     t_list *temp;
@@ -120,7 +147,7 @@ void    ft_handle_hundred(t_list **stack_a, t_list **stack_b)
     // max-=1;
     while((max>>bits) != 0)
     {
-        
+
         bits++;
     }
     bits++;
@@ -147,6 +174,8 @@ void    ft_handle_hundred(t_list **stack_a, t_list **stack_b)
             push_a(stack_a, stack_b);
              nav += 1;
         }
+		if(ft_is_sorted(stack_a) == 1)
+			break ;
         i++;
     }
 }
