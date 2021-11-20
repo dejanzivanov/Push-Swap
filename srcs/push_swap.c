@@ -90,12 +90,11 @@ void	bubblesort(int arr[], int n)
 		while (j < n - i - 1)
 		{
 			if (arr[j] > arr[j + 1])
-				swap1(&arr[j], &arr[j+1]);
+				swap1(&arr[j], &arr[j + 1]);
 			j += 1;
 		}
 		i += 1;
 	}
-
 }
 
 int	main(int argc, char **argv)
