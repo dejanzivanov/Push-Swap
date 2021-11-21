@@ -19,11 +19,7 @@ void	ft_binary_assignment(int i, t_list **stack_a, int *values)
 		while (counter)
 		{
 			if (values[j] == ((t_vars *)(*counter).content)->value)
-			{
 				((t_vars *)(*counter).content)->sorted_index = j;
-				/*((t_vars *)(*counter).content)->bin_num
-					= ft_put_nbrbase(j, "01");*/
-			}
 			counter = (*counter).next;
 		}
 		j++;

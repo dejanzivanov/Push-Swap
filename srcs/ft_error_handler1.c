@@ -11,11 +11,9 @@ void	ft_error_printer(t_list *list)
 void	ft_non_numeric_handler(char **argv, t_list *list)
 {
 	int		i;
-	int		j;
 	long	k;
 
 	i = 1;
-	j = 0;
 	k = 0;
 	while (argv[i])
 	{

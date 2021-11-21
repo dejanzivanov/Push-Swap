@@ -52,10 +52,9 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	ft_bubble_sort(values, i);
-
 	ft_binary_assignment(i, &stack_a, values);
 	free(values);
-	ft_argument_check(argv, &stack_a, &stack_b);
+	ft_argument_check(&stack_a, &stack_b);
 	return (0);
 }
 

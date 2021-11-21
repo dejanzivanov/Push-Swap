@@ -1,6 +1,6 @@
 #include "../inc/ft_push_swap.h"
 
-void	ft_argument_check(char **argv, t_list **stack_a, t_list **stack_b)
+void	ft_argument_check(t_list **stack_a, t_list **stack_b)
 {
 	int	argument_num;
 
@@ -26,7 +26,7 @@ void	ft_sorting_helper(t_list **s_a, t_list **s_b, int i)
 	nav = 0;
 	while (nav < counter)
 	{
-		if ((((t_vars *)(*s_a)->content)->sorted_index) >> i & 1 == 1)
+		if ((((((t_vars *)(*s_a)->content)->sorted_index) >> i) & 1) == 1)
 			rotate_stack(s_a, "ra");
 		else
 			push_b(s_a, s_b);
@@ -79,10 +79,8 @@ void	ft_handle_hundred(t_list **stack_a, t_list **stack_b)
 		if (ft_is_sorted(stack_a) == 1)
 		{
 			ft_free_list(*stack_a);
-			ft_free_list(*stack_b);
 			return ;
 		}
-
 		i++;
 	}
 }

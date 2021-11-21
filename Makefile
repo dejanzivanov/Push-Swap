@@ -24,8 +24,8 @@ BUILD 		= $(SRCS_OBJS:$(OBJD)%.o)
 
 CC         = gcc
 
-#CFLAGS         = -Wall -Wextra -Werror //this needs to be commented out in the end
-CFLAGS         =
+CFLAGS         = -Wall -Wextra -Werror
+#CFLAGS         =
 
 RM         = rm -f
 

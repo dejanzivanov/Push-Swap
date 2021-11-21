@@ -9,7 +9,6 @@ typedef struct s_vars
 	unsigned int	index;
 	int				value;
 	unsigned int	sorted_index;
-	//char			*bin_num; //memory leeks consider on exxit
 }			t_vars;
 
 void	ft_del(void *content);
@@ -17,21 +16,15 @@ void	ft_binary_assignment(int i, t_list **stack_a, int *values);
 void	ft_close_program(t_list *stack_a);
 void	ft_sorting_helper(t_list **s_a, t_list **s_b, int i);
 void	ft_reverse(char *x, int begin, int end);
-//int		ft_check_base(char *base, int base_len, int i, int index);
-//int		ft_print_base(int nbr, char *base, int base_len);
-//void	ft_print_base2(int nbr, char *base, char *str, int i);
-//char	*ft_put_nbrbase(int nbr, char *base);
 int		ft_is_sorted(t_list **stack_a);
 void	ft_reverse_rotate_helper(t_list **stack_a, t_list **stack_b);
-int		ft_print_base(int nbr, char *base, int base_len); //delete this
-int		ft_check_base(char *base, int base_len, int i, int index);
 void	ft_handle_two(t_list **stack_a);
 void	ft_handle_three(t_list **stack_a);
 void	ft_handle_four(t_list **stack_a, t_list **stack_b);
 void	ft_handle_five(t_list **stack_a, t_list **stack_b);
 void	ft_handle_hundred(t_list **stack_a, t_list **stack_b);
 void	ft_handle_five_hundred(t_list **stack_a, t_list **stack_b);
-void	ft_argument_check(char **argv, t_list **stack_a, t_list **stack_b);
+void	ft_argument_check(t_list **stack_a, t_list **stack_b);
 void	ft_free_list(t_list *head);
 t_list	*ft_sorted_handler(char **argv, t_list *list);
 void	ft_error_printer(t_list *list);
