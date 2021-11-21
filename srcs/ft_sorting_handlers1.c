@@ -78,8 +78,8 @@ void	ft_handle_five(t_list **stack_a, t_list **stack_b)
 	}
 	else if (index == 2)
 	{
-		rotate_stack(stack_a, "rra");
-		rotate_stack(stack_a, "rra");
+		rotate_stack(stack_a, "ra");
+		rotate_stack(stack_a, "ra");
 		push_b(stack_a, stack_b);
 	}
 	else if (index == 3)

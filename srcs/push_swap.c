@@ -1,5 +1,5 @@
 #include "../inc/ft_push_swap.h"
-
+#include <stdio.h>
 void	ft_swap1(int *xp, int *yp)
 {
 	int	temp;
@@ -45,6 +45,8 @@ int	main(int argc, char **argv)
 	stack_a = ft_error_handler(argv, stack_a);
 	values = ft_calloc(ft_lstsize(stack_a), sizeof(int));
 	counter = stack_a;
+
+
 	while (i < ft_lstsize(stack_a))
 	{
 		values[i] = ((t_vars *)(*counter).content)->value;

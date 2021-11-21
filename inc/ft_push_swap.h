@@ -8,7 +8,7 @@ typedef struct s_vars
 {
 	unsigned int	index;
 	int				value;
-	unsigned int	sorted_index;
+	int	sorted_index;
 }			t_vars;
 
 void	ft_del(void *content);
@@ -23,7 +23,6 @@ void	ft_handle_three(t_list **stack_a);
 void	ft_handle_four(t_list **stack_a, t_list **stack_b);
 void	ft_handle_five(t_list **stack_a, t_list **stack_b);
 void	ft_handle_hundred(t_list **stack_a, t_list **stack_b);
-void	ft_handle_five_hundred(t_list **stack_a, t_list **stack_b);
 void	ft_argument_check(t_list **stack_a, t_list **stack_b);
 void	ft_free_list(t_list *head);
 t_list	*ft_sorted_handler(char **argv, t_list *list);

@@ -15,6 +15,9 @@ void	ft_non_numeric_handler(char **argv, t_list *list)
 
 	i = 1;
 	k = 0;
+	/*printf("Character is %c\n", argv[1][0]);
+	if (ft_isalpha(argv[1][0]))
+		ft_error_printer(list);*/
 	while (argv[i])
 	{
 		if ((ft_strlen(argv[i]) == 1) && (argv[i][0] == '0'))
