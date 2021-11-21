@@ -36,7 +36,7 @@ void	check_if_sorted_list_is_sorted(t_list *head)
 
 t_list	*ft_sorted_handler(char **argv, t_list *list)
 {
-	t_list	*temp;
+	//t_list	*temp;
 	t_vars	*temp2;
 	int		i;
 	int		j;
@@ -51,11 +51,14 @@ t_list	*ft_sorted_handler(char **argv, t_list *list)
 		temp2 = (t_vars *)ft_calloc(1, sizeof(t_vars));
 		temp2->value = j;
 		temp2->index = counter;
-		temp = ft_lstnew(temp2);
-		ft_lstadd_back(&list, temp);
+		//temp = ft_lstnew(temp2);
+		//ft_lstadd_back(&list, temp);
+		ft_lstadd_back(&list, ft_lstnew(temp2));
+
 		counter++;
 		i++;
 	}
+	//ft_free_list(temp);
 	check_if_sorted_list_is_sorted(list);
 	return (list);
 }

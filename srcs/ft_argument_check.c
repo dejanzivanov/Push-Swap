@@ -77,7 +77,12 @@ void	ft_handle_hundred(t_list **stack_a, t_list **stack_b)
 			nav += 1;
 		}
 		if (ft_is_sorted(stack_a) == 1)
-			break ;
+		{
+			ft_free_list(*stack_a);
+			ft_free_list(*stack_b);
+			return ;
+		}
+
 		i++;
 	}
 }

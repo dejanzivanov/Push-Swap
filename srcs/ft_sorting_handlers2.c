@@ -64,6 +64,6 @@ char	*ft_put_nbrbase(int nbr, char *base)
 		value = ft_print_base(nbr, base, base_len);
 	str = ft_calloc(sizeof(value) + 1, 1);
 	ft_print_base2(nbr, base, str, 0);
-	ft_reverse(str, 0, ft_strlen(str)-1);
+	ft_reverse(str, 0, ft_strlen(str) - 1);
 	return (str);
 }
