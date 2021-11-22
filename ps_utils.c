@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/22 19:11:13 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/23 00:16:52 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,7 +253,7 @@ void	sort_3(t_list *head)
 	}
 	else if (head->value > head->next->value && head->next->value < head->next->next->value && head->value > head->next->next->value) // 3 1 2
 		head = ra(head);
-	printlst(head);
+	//printlst(head);
 }
 
 t_list	*ft_lst_penultimate(t_list *head)
@@ -311,16 +311,17 @@ t_list	*bring_min_up(t_list *min_s, t_list *head, int len)
 
 	i = 1;
 	lst = head;
-	while (lst != min_s)
+	while (lst->value != min_s->value)
 	{
 		i++;
 		lst = lst->next;	
 	}
-	// printf("Len: %d, i: %d", len, i);
+	printf("Len: %d, i: %d\n", len, i);
 	if (i >= len / 2)
-		head = call_ra(head, (len - i + 1));
+		head = call_rra(head, (len - i + 1));
 	else
-		head = call_rra(head, i);
+		head = call_ra(head, i);
+	//printlst(head);
 	return (head);
 }
 
@@ -347,16 +348,21 @@ t_list	*call_rra(t_list *head, int counter)
 void	sort_5(t_list *major_a, t_list *major_b, int len)
 {
 	t_list	*min_s;
-
+	
 	min_s = find_min(major_a);
 	major_a = bring_min_up(min_s, major_a, len);
-	major_b = pb(major_a, major_b);
-	min_s = find_min(major_a);
-	printf("Min_s: %d\n", min_s->value); //ok
-	bring_min_up(min_s, major_a, len - 2);
+	//major_a = pb(&major_a, &major_b);
+	pb(&major_a, &major_b);
+	printf("Line 355:\n");
+	printf("Stack_a:\n");
 	printlst(major_a);
-	major_b = pb(major_a, major_b);
-	//sort_3(major_a);
-	//pa(major_a, major_b);
-	//pa(major_a, major_b);
+	printf("Stack_b:\n");
+	printlst(major_b);
+	// min_s = find_min(major_a);
+	// major_a = bring_min_up(min_s, major_a, len - 2);
+	// major_b = pb(major_a, major_b);
+	// sort_3(major_a);
+	// pa(major_a, major_b);
+	// pa(major_a, major_b);
+	// printlst(major_a);
 }

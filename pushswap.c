@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:56:01 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/22 12:28:36 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/23 00:05:11 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,5 @@ int main(int argc, char *argv[])
 	if (argc == 3)
 		just_the_two_of_us(indexed);
 	init_struct(indexed, argc - 1);
-	// while (k < argc - 1)
-	// {
-	// 	printf("%d\n", indexed[k]);
-	// 	k++;
-	// }
 	return (0);
 }
