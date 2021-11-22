@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_utils.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
+/*   Updated: 2021/11/22 12:45:36 by espyromi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
-void	just_the_two_of_us(int *input)
+void	just_the_two_of_us(long int *input)
 {
 	int	holder;
 	if (input[1] > input[2])
@@ -15,44 +27,36 @@ void	just_the_two_of_us(int *input)
 		exit(0);
 }
 
-int *take_arg(int len, char *arg[])
+long int *take_arg(int len, char *argv[]) //raw check here, return int* 
 {
 	int	i;
 	int	j;
-	int	*arr;
-	int	tmp;
+	long int	*arr;
+	long int	tmp;
 
 	j = 1;
 	i = 0;
-	arr = (int *)malloc((len) * sizeof(int));
+	check_non_num(argv, len);
+	arr = (long int *)malloc((len) * sizeof(long int));
 	if (!arr)
 		return (0);
 	while (i < len)
 	{
-		tmp = ft_atoi(arg[j]);
-		if (!tmp)
-		{
-			free (arr);
-			write(1,"Error\n", 6);
-			exit(-1);
-		}
+		tmp = ft_atoi(argv[j]);
 		arr[i] = tmp;
 		j++;
 		i++;
 	}
-	check_input(arr, len);
-	if (check_if_sorted(arr, len) == 1)
-	{
-		free (arr);
-		return(NULL);
-	}
+	check_range(arr, len);
+	check_duplicate(arr);
+	check_if_sorted(arr, len);
 	return (arr);
 }
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	result;
+	long int	sign;
+	long int	result;
 
 	sign = 1;
 	result = 0;
@@ -76,50 +80,8 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-void	check_input(int *arr, int len)
-{
-	int		i;
 
-	i = 0;
-	if (check_duplicate(arr) == -1)
-	{
-		free(arr);
-		return;
-	}
-	while (len > 0)
-	{
-		if (arr[i] > 2147483647 || arr[i] < -2147483648)
-		{
-			free (arr);
-			write(1, "Error\n", 6);
-		}
-		len --;
-		i++;
-	}
-}
-
-int	check_if_sorted(int *arr, int length)
-{
-	int	i;
-	int	k;
-
-	i = 0;
-	k = 0;
-	while (length - 1 > 0)
-	{
-		if (arr[i] < arr[i + 1])
-			i++;
-		else
-			k++;
-		length--;
-	}
-	if (k == 0)
-		return(1);
-	else
-		return(0);
-}
-
-int	*bbsort(int *arr, int len)
+long int	*bbsort(long int *arr, int len)
 {
 	int	step;
 	int	i;
@@ -150,13 +112,13 @@ int	*bbsort(int *arr, int len)
 	return (arr);
 }
 
-int		*copy(int *arr, int len)
+long int		*copy(long int *arr, int len)
 {
-	int	*storage;
+	long int	*storage;
 	int	i;
 
 	i = 0;
-	storage = (int *)malloc((len) * sizeof(int));
+	storage = (long int *)malloc((len) * sizeof(long int));
 	if (!storage)
 		exit(-1);
 	while(i < len)
@@ -167,35 +129,15 @@ int		*copy(int *arr, int len)
 	return (storage);
 }
 
-int		check_duplicate(int *arr)
-{
-	int	i;
-	int	j;
-	
-	i = 0;
-	j = 1;
-	while(arr[i] != '\0')
-	{
-		j = i + 1;
-		while (arr[j] != '\0')
-		{
-			if (arr[i] == arr[j])
-				return (-1);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
 
-int *get_sorted_indexes(int *before, int *after, int len)
+long int *get_sorted_indexes(long int *before, long int *after, int len)
 {
-    int    *indexes;
+    long int    *indexes;
     int    i;
     int    j;
     int    k;
 
-	indexes = (int *)malloc((len + 1)* sizeof(int));
+	indexes = (long int *)malloc((len + 1)* sizeof(long int));
 	i = 0;
 	j = 0;
 	k = 0;
@@ -250,6 +192,7 @@ t_list	*ft_lstnew(int value)
 
 void	printlst(t_list *lst)
 {
+	//printf("Printed %d\n", lst->next->next->value);
 	while (lst)
 	{
 		printf("%d :  %p\n", lst->value, lst);
@@ -257,25 +200,88 @@ void	printlst(t_list *lst)
 	}
 }
 
-int		init_struct(int *indexed, int len)
+int		init_struct(long int *indexed, int len)
 {
-	t_list	major_a;
-	t_list	major_b;
+	t_list	*major_a;
+	t_list	*major_b;
 	t_list	*new;
 	int		i;
 
-	major_a = *ft_lstnew(-1);
 	i = 0;
+	major_b = NULL;
+	new = ft_lstnew(indexed[i]);
+	major_a = new;
+	i++;
 	while (i < len)
 	{
 		new = ft_lstnew(indexed[i]);
-		ft_lstadd_back(&major_a, new);
+		ft_lstadd_back(major_a, new);
 		i++;
 	}
-	printlst(&major_a);
-	major_b = *ft_lstnew(-2);
-	//sort_stack(major_a, major_b, len);
+	sort_stack(major_a, major_b, len);
 
 	return (0);
 }
 
+void	sort_stack(t_list *major_a, t_list *major_b, int len)
+{
+	if (len == 3)
+		sort_3(major_a);
+}
+
+void	sort_3(t_list *head)
+{
+	if (head->value < head->next->value && head->next->value > head->next->next->value && head->value < head->next->next->value) // 1 3 2 
+	{
+		sa(head);
+		printlst(head);
+	}
+	else if (head->value < head->next->value && head->next->value > head->next->next->value && head->value > head->next->next->value)
+	{
+		//printf("Case: 2 3 1\n");
+		head = rra(head);
+	}
+	else if (head->value > head->next->value && head->next->value < head->next->next->value && head->next->next->value > head->value) // 2 1 3
+	{
+		sa(head);
+		head = rra(head);
+	}
+	else if (head->value > head->next->value && head->next->value > head->next->next->value && head->next->next->value < head->value) // 3 2 1
+	{
+		printf("Case: 3 2 1\n");
+		head = rra(head);
+		sa(head);
+		
+	}
+	else if (head->value > head->next->value && head->next->value < head->next->next->value && head->value > head->next->next->value) // 3 1 2
+		head = ra(head);
+	printlst(head);
+}
+
+t_list	*ft_lst_penultimate(t_list *head)
+{
+	t_list	*last;
+	t_list	*lst;
+
+	lst = head;
+	if (!lst)
+		return (NULL);
+	last = ft_lstlast(head);
+	while (lst->next != last)
+		lst = lst->next;
+	return (lst);
+}
+
+t_list	*ft_antepenultimate(t_list *head)
+{
+	t_list	*last;
+	t_list	*lst;
+	t_list	*pen;
+
+	lst = head;
+	last = ft_lstlast(lst);
+	pen = ft_lst_penultimate(lst);
+	while (lst->next != last && lst->next != pen)
+		lst = lst->next;
+	return (lst);
+}
