@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/22 12:45:36 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/22 19:11:13 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,6 @@ long int *get_sorted_indexes(long int *before, long int *after, int len)
 		i++;
 		k++;
 	}
-	// free (before);
-	// free (after);
 	return (indexes);
 }
 
@@ -192,7 +190,6 @@ t_list	*ft_lstnew(int value)
 
 void	printlst(t_list *lst)
 {
-	//printf("Printed %d\n", lst->next->next->value);
 	while (lst)
 	{
 		printf("%d :  %p\n", lst->value, lst);
@@ -227,6 +224,8 @@ void	sort_stack(t_list *major_a, t_list *major_b, int len)
 {
 	if (len == 3)
 		sort_3(major_a);
+	if (len == 5)
+		sort_5(major_a, major_b, len);
 }
 
 void	sort_3(t_list *head)
@@ -238,7 +237,6 @@ void	sort_3(t_list *head)
 	}
 	else if (head->value < head->next->value && head->next->value > head->next->next->value && head->value > head->next->next->value)
 	{
-		//printf("Case: 2 3 1\n");
 		head = rra(head);
 	}
 	else if (head->value > head->next->value && head->next->value < head->next->next->value && head->next->next->value > head->value) // 2 1 3
@@ -284,4 +282,81 @@ t_list	*ft_antepenultimate(t_list *head)
 	while (lst->next != last && lst->next != pen)
 		lst = lst->next;
 	return (lst);
+}
+
+t_list	*find_min(t_list *head)
+{
+	int	min_val;
+	t_list	*lst;
+	t_list	*send;
+
+	min_val = head->value;
+	lst = head;
+	while(lst->next != NULL)
+	{
+		if (lst->value < min_val)
+		{
+			min_val = lst->value;
+			send = lst;
+		}
+		lst = lst->next;
+	}
+	return (send);
+}
+
+t_list	*bring_min_up(t_list *min_s, t_list *head, int len)
+{
+	int	i;
+	t_list	*lst;
+
+	i = 1;
+	lst = head;
+	while (lst != min_s)
+	{
+		i++;
+		lst = lst->next;	
+	}
+	// printf("Len: %d, i: %d", len, i);
+	if (i >= len / 2)
+		head = call_ra(head, (len - i + 1));
+	else
+		head = call_rra(head, i);
+	return (head);
+}
+
+t_list	*call_ra(t_list *head, int counter)
+{
+	while(counter > 0)
+	{
+		head = ra(head);
+		counter--;
+	}
+	return(head);
+}
+
+t_list	*call_rra(t_list *head, int counter)
+{
+	while(counter > 0)
+	{
+		head = rra(head);
+		counter--;
+	}
+	return(head);
+}
+
+void	sort_5(t_list *major_a, t_list *major_b, int len)
+{
+	t_list	*min_s;
+
+	min_s = find_min(major_a);
+	major_a = bring_min_up(min_s, major_a, len);
+	major_b = pb(major_a, major_b);
+	min_s = find_min(major_a);
+	printf("Min_s: %d\n", min_s->value); //ok
+	bring_min_up(min_s, major_a, len - 2);
+	printlst(major_a);
+	major_b = pb(major_a, major_b);
+	//sort_3(major_a);
+	//pa(major_a, major_b);
+	//pa(major_a, major_b);
 }

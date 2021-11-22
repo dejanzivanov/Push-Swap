@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 17:08:28 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/21 21:15:55 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/22 19:09:34 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,31 +90,56 @@ void	pa(t_list *major_a, t_list *major_b)
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_list *major_a, t_list *major_b)
+t_list	*pb(t_list *major_a, t_list *major_b)
 {
 	t_list	*top_a;
-	t_list	*top_b;
-	t_list	*pen_b;
+	t_list	*pen_a;
+	t_list	*new;
+	
 
+	pen_a = ft_lst_penultimate(major_a);
 	top_a = ft_lstlast(major_a);
-	top_b = ft_lstlast(major_b);
-	pen_b = ft_lst_penultimate(major_b);
-	top_a->next = top_b;
-	pen_b->next = NULL;
+	if (major_b == NULL)
+	{
+		new = (t_list*)malloc(sizeof(t_list));
+		if (!new)
+			exit(-1);
+		new->value = top_a->value;
+		new->next = NULL;
+		major_b = new;
+		free(top_a);
+		pen_a->next = NULL;
+	}
+	else
+	{
+		new = (t_list*)malloc(sizeof(t_list));
+		if (!new)
+			exit(-1);
+		new->value = top_a->value;
+		new->next = NULL;
+		ft_lstadd_back(major_b, new);
+		free(top_a);
+		pen_a->next = NULL;
+	}
+	// printlst(major_b);
 	write(1, "pb\n", 3);
+	return (major_b);
 }
 
 t_list	*ra(t_list *head) //first becomes last.
 {
 	t_list	*last;
-	t_list	*pen;
+	t_list	*sherpa;
 
 	last = ft_lstlast(head);
-	pen = ft_lst_penultimate(head);
+	sherpa = head;
 	last->next = head;
-	head->next = NULL;
-	head = pen;
+	head = head->next;
+	sherpa->next = NULL;
 	write(1, "ra\n", 3);
+	printf("After ra, head value= %d\n", head->value);
+	last = ft_lstlast(head);
+	printf("After ra, last value= %d\n", last->value);
 	return(head);
 }
 t_list	*rb(t_list *head_b)
