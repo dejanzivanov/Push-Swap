@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 22:18:15 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/22 12:49:30 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/23 23:23:57 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,16 @@ void	check_range(long int *arr, int len)
 	}
 }
 
-void	check_duplicate(long int *arr)
+void	check_duplicate(long int *arr, int len)
 {
 	int	i;
 	int	j;
 	
 	i = 0;
-	j = 1;
-	while(arr[i] != '\0')
+	j = 0;
+	while(i < len)
 	{
-		j = i + 1;
-		while (arr[j] != '\0')
+		while (j < len)
 		{
 			if (arr[i] == arr[j])
 				panic(arr);

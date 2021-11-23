@@ -6,50 +6,64 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 17:08:28 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/23 00:18:39 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/23 22:18:18 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_list	*rra(t_list *head)
+void	rra(t_list **head) //last becomes first
 {
 	t_list	*sherpa;
 	t_list	*pen;
+	t_list	*new;
+	t_list	*top;
 
-	sherpa = ft_lstlast(head);
-	pen = ft_lst_penultimate(head);
-	sherpa->next = head;
+	top = *head;
+	sherpa = ft_lstlast(top);
+	pen = ft_lst_penultimate(*head);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		return ;
+	new->value = sherpa->value;
+	new->next = top;
+	*head = new;
 	pen->next = NULL;
-	head = sherpa;
+	free(sherpa);
 	write(1, "rra\n", 4);
-	return (head);
 }
 
-t_list	*rrb(t_list *head_b)
+void	rrb(t_list **head_b)
 {
 	t_list	*sherpa;
 	t_list	*pen;
+	t_list	*new;
+	t_list	*top;
 
-	sherpa = ft_lstlast(head_b);
-	pen = ft_lst_penultimate(head_b);
-	sherpa->next = head_b;
+	top = *head_b;
+	sherpa = ft_lstlast(top);
+	pen = ft_lst_penultimate(*head_b);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		return ;
+	new->value = sherpa->value;
+	new->next = top;
+	*head_b = new;
 	pen->next = NULL;
-	head_b = sherpa;
+	free (sherpa);
 	write(1, "rrb\n", 4);
-	return (head_b);
 }
 
-void	sa(t_list *head) //swap the two top
+void	sa(t_list **head) //swap the two top
 {
 	t_list	*first;
 	t_list	*second;
 	t_list	*third;
 
-	first = head;
-	second = head->next;
-	third = head->next->next;
-	head = second;
+	first = *head;
+	second = (*head)->next;
+	third = (*head)->next->next;
+	*head = second;
 	second->next = first;
 	first->next = third;
 	write(1, "sa\n", 3);
@@ -71,78 +85,99 @@ void	sb(t_list *head_b)
 }
 void	ss(t_list *major_a, t_list *major_b)
 {
-	sa(major_a);
+	sa(&major_a);
 	sb(major_b);
 	write(1, "ss\n", 3);
 }
-void	pa(t_list *major_a, t_list *major_b)
+void	pa(t_list **major_a, t_list **major_b)
 {
-	if (major_b == NULL)
-		return ;
-	t_list	*first_a;
-	t_list	*first_b;
-	//t_list	*second;
+	t_list	*top_b;
+	t_list	*new;
 
-	first_b = major_b;
-	first_a = major_a;
-	major_b = major_b->next;
-	first_b->next = first_a;
-	major_a = first_b;
+	top_b = *major_b;
+	if (top_b == NULL)
+		return ;
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		return ;
+	new->value = (*major_b)->value;
+	if (*major_a == NULL)
+		new->next = NULL;
+	else
+		new->next = *major_a;
+	*major_a = new;
+	*major_b = top_b->next;
 	write(1, "pa\n", 3);
 }
 
 void	pb(t_list **major_a, t_list **major_b)
-{ //kane kai tin pa etsi
+{
 	t_list	*top_a;
 	t_list	*new;
 
+	top_a = *major_a;
+	if (top_a == NULL)
+		return ;
 	new = (t_list *)malloc(sizeof(t_list));
 	if (!new)
 		return ;
-	top_a = *major_a;
-	new->value = top_a->value;
-	new->next = *major_b;
+	new->value = (*major_a)->value;
+	if (*major_b == NULL)
+		new->next = NULL;
+	else
+		new->next = *major_b;
 	*major_b = new;
 	*major_a = top_a->next;
-	free(top_a);
-	top_a = NULL;
+	// free(top_a);
+	// top_a = NULL;
 	write(1, "pb\n", 3);
-	//return (major_b);
 }
 
-t_list	*ra(t_list *head) //first becomes last.
+void	ra(t_list **head) //first becomes last.
 {
 	t_list	*first;
 	t_list	*sherpa;
+	t_list	*new;
 
-	first = head;
-	sherpa = ft_lstlast(head);
-	head = head->next;
-	sherpa->next = first;
-	first->next = NULL;
+	first = *head;
+	sherpa = ft_lstlast(*head);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		return ;
+	new->value = first->value;
+	printf("Value of new->value (ra): %d\n", new->value);
+	new->next = NULL;
+	*head = first->next;
+	sherpa->next = new;
 	write(1, "ra\n", 3);
-	return(head);
 }
-t_list	*rb(t_list *head_b)
+void	rb(t_list **head_b)
 {
 	t_list	*first;
 	t_list	*sherpa;
+	t_list	*new;
 
-	first = head_b;
-	sherpa = ft_lstlast(head_b);
-	head_b = head_b->next;
-	sherpa->next = first;
-	first->next = NULL;
+	first = *head_b;
+	sherpa = ft_lstlast(*head_b);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		return ;
+	new->value = first->value;
+	new->next = NULL;
+	sherpa = ft_lstlast(*head_b);
+	*head_b = first->next;
+	sherpa->next = new;
+	free(first);
+	first = NULL;
 	write(1, "rb\n", 3);
-	return(head_b);
 }
 
-// void	rr(t_list *major_a, t_list *major_b)
-// {
-// 	major_a = ra(major_a);
-// 	major_b = rb(major_b);
-// 	write(1, "rr\n", 3);
-// }
+void	rr(t_list **major_a, t_list **major_b)
+{
+	ra(major_a);
+	rb(major_b);
+	write(1, "rr\n", 3);
+}
 
 size_t	ft_strlen(const char *s)
 {
