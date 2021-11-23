@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 22:18:15 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/23 23:36:22 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/23 23:51:20 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	check_if_sorted(long int *arr, int length)
 	}
 	if (i == len - 1)
 	{
-		printf("Already Sorted.\n");
+		printf("Already Sorted...\n");
 		panic(arr);
 	}
 }
@@ -96,6 +96,6 @@ void	check_if_sorted(long int *arr, int length)
 void	panic(long int *arr)
 {
 	free (arr);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit (-1);
 }

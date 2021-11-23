@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 17:08:28 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/23 22:18:18 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/23 23:50:36 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,6 @@ void	ra(t_list **head) //first becomes last.
 	if (!new)
 		return ;
 	new->value = first->value;
-	printf("Value of new->value (ra): %d\n", new->value);
 	new->next = NULL;
 	*head = first->next;
 	sherpa->next = new;

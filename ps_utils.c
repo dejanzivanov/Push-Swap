@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/23 23:47:01 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/24 00:49:34 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,8 @@ void	sort_stack(t_list *major_a, t_list *major_b, int len)
 		sort_3(&major_a);
 	if (len == 5)
 		sort_5(major_a, major_b, len);
+	else
+		lazysort(&major_a, &major_b, len);
 }
 
 void	sort_3(t_list **head)
@@ -316,10 +318,8 @@ void	bring_min_up(int min_v, t_list **head, int len)
 		call_rra(head, (len - i + 1));
 	else if (i == 2)
 		ra(head);
-	else // else (i < (len/ 2))
-		call_ra(head, (len - i -1));
-	// printf("is min up IN:\n");
-	// printlst(del_this);
+	else
+		call_ra(head, (len - i - 1));
 }
 
 void	call_ra(t_list **head, int counter)
@@ -345,25 +345,29 @@ void	sort_5(t_list *major_a, t_list *major_b, int len)
 	int	min_v;
 	
 	min_v = find_min(&major_a);
-	printf("MIN: %d\n", min_v);
 	bring_min_up(min_v, &major_a, len);
-	printf("is min up out:\n");
-	printlst(major_a);
 	pb(&major_a, &major_b);
-	//printf("Line 352:\n");
-	//printlst(major_a);
 	min_v = find_min(&major_a);
 	bring_min_up(min_v, &major_a, len - 1);
-	//printf("Line 357:\n");
-	//printlst(major_a);
 	pb(&major_a, &major_b);
-	printf("B after two pb:\n");
 	printlst(major_b);
 	sort_3(&major_a);
-	printf("Line 365 Major_b:\n");
-	//printlst(major_b);
 	pa(&major_a, &major_b);
 	pa(&major_a, &major_b);
-	printf("Is it sorted:\n");
+	printf("Is it sorted? :\n");
 	printlst(major_a);
+}
+
+void	lazysort(t_list **major_a, t_list **major_b, int len)
+{
+	int	min_v;
+	
+	while ((*major_a)->next != NULL)
+	{
+		min_v = find_min(major_a);
+		bring_min_up(min_v, major_a, len);
+		pb(major_a, major_b);
+		len --;
+	}
+	printlst(*major_b);
 }

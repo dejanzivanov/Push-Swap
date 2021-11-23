@@ -22,6 +22,7 @@ long int 	*get_sorted_indexes(long int *before, long int *after, int len);
 size_t		ft_strlen(const char *s);
 void		check_range(long int *arr, int len);
 void		panic(long int *arr);
+
 // Functions for struct management
 int		init_struct(long int *indexed, int len);
 void	ft_lstadd_back(t_list *lst, t_list *new);
@@ -29,6 +30,7 @@ t_list	*ft_lstlast(t_list *lst);
 void	printlst(t_list *lst);
 void	sort_stack(t_list *major_a, t_list *major_b, int len);
 void	sort_3(t_list **head);
+
 // Allowed moves
 void	sa(t_list **head);
 void	sb(t_list *head);
@@ -40,7 +42,8 @@ void	rb(t_list **head_b);
 void	rr(t_list **major_a, t_list **major_b);
 void	rra(t_list **head);
 void	rrb(t_list **head_b);  
-void	rrr(t_list **major_a, t_list **major_b); 
+void	rrr(t_list **major_a, t_list **major_b);
+
 // Functions for sorting 5
 t_list	*ft_lst_penultimate(t_list *head);
 t_list	*ft_antepenultimate(t_list *head);
@@ -49,3 +52,6 @@ int		find_min(t_list **head);
 void	call_ra(t_list **head, int counter);
 void	call_rra(t_list **head, int counter);
 void	sort_5(t_list *major_a, t_list *major_b, int len);
+
+// Fun-ctions for sorting 5+
+void	lazysort(t_list **major_a, t_list **major_b, int len);
