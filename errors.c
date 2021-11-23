@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 22:18:15 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/23 23:23:57 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/23 23:36:22 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	check_duplicate(long int *arr, int len)
 	int	j;
 	
 	i = 0;
-	j = 0;
+	j = 1;
 	while(i < len)
 	{
 		while (j < len)

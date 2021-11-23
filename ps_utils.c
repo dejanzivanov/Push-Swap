@@ -6,21 +6,17 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/23 23:18:12 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/23 23:47:01 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	just_the_two_of_us(long int *input)
+void	just_the_two_of_us(t_list **head)
 {
-	int	holder;
-	if (input[1] > input[2])
+	if ((*head)->value > (*head)->next->value)
 	{
-		holder = input[1];
-		input[1] = input[2];
-		input[2] = holder;
-		write(1, "sa\n", 3);
+		sa(head);
 		exit(0);
 	}
 	else
@@ -221,6 +217,8 @@ int		init_struct(long int *indexed, int len)
 
 void	sort_stack(t_list *major_a, t_list *major_b, int len)
 {
+	if (len == 2)
+		just_the_two_of_us(&major_a);
 	if (len == 3)
 		sort_3(&major_a);
 	if (len == 5)

@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:56:01 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/23 00:05:11 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/23 23:42:33 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
 	unsorted = copy(input, argc - 1);
 	sorted = bbsort(input, argc - 1);
 	indexed = get_sorted_indexes(unsorted, sorted, argc - 1);
-	if (argc == 3)
-		just_the_two_of_us(indexed);
+	// if (argc == 3)
+	// 	just_the_two_of_us(indexed);
 	init_struct(indexed, argc - 1);
 	return (0);
 }

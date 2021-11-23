@@ -9,7 +9,7 @@ typedef struct s_list
 }			t_list;
 
 // Functions for input handling
-void		just_the_two_of_us(long int *input);
+void		just_the_two_of_us(t_list **head);
 long int 	*take_arg(int len, char *argv[]);
 void		argument_handling(char **argv);
 long int	ft_atoi(const char *str);
