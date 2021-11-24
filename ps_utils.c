@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/24 00:49:34 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/24 23:56:31 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,7 +224,8 @@ void	sort_stack(t_list *major_a, t_list *major_b, int len)
 	if (len == 5)
 		sort_5(major_a, major_b, len);
 	else
-		lazysort(&major_a, &major_b, len);
+		sort_more(&major_a, &major_b, len);
+		//lazysort(&major_a, &major_b, len);
 }
 
 void	sort_3(t_list **head)
@@ -268,19 +269,19 @@ t_list	*ft_lst_penultimate(t_list *head)
 	return (lst);
 }
 
-t_list	*ft_antepenultimate(t_list *head)
-{
-	t_list	*last;
-	t_list	*lst;
-	t_list	*pen;
+// t_list	*ft_antepenultimate(t_list *head)
+// {
+// 	t_list	*last;
+// 	t_list	*lst;
+// 	t_list	*pen;
 
-	lst = head;
-	last = ft_lstlast(lst);
-	pen = ft_lst_penultimate(lst);
-	while (lst->next != last && lst->next != pen)
-		lst = lst->next;
-	return (lst);
-}
+// 	lst = head;
+// 	last = ft_lstlast(lst);
+// 	pen = ft_lst_penultimate(lst);
+// 	while (lst->next != last && lst->next != pen)
+// 		lst = lst->next;
+// 	return (lst);
+// }
 
 int	find_min(t_list **head)
 {
@@ -354,8 +355,65 @@ void	sort_5(t_list *major_a, t_list *major_b, int len)
 	sort_3(&major_a);
 	pa(&major_a, &major_b);
 	pa(&major_a, &major_b);
-	printf("Is it sorted? :\n");
+	printf("Is it sorted?\n");
 	printlst(major_a);
+}
+
+void	send_half(t_list **major_a, t_list **major_b, int len)
+{
+	int	limit;
+	int counter;
+	t_list *last;
+
+	limit = find_min(major_a) + len / 2;
+	printf("Limit: %d\n", limit);
+	counter = 0;
+	while ((*major_a)->next->next->next != NULL && counter <=limit)
+	{
+		if (find_min(major_a) > limit)
+			return ;
+		last = ft_lstlast(*major_a);
+		if ((*major_a)->value <= limit)
+		{
+			pb(major_a, major_b);
+			last = ft_lstlast(*major_a);
+			counter++;
+		}
+		else if ((*major_a)->next->value <= limit)
+		{
+			sa(major_a);
+			pb(major_a, major_b);
+			last = ft_lstlast(*major_a);
+			counter++;
+		}
+		else if (last->value <= limit)
+		{
+			rra(major_a);
+			pb(major_a, major_b);
+			counter++;
+		}
+		else
+			rra(major_a);
+			//printf("Fuck\n");
+	}
+	printf("50-50 rap kai graffiti\n");
+	printf("List A:\n");
+	printlst(*major_a);
+	printf("List B:\n");
+	printlst(*major_b);
+	return ;
+}
+
+void	sort_more(t_list **major_a, t_list **major_b, int len)
+{
+	int counter = len;
+	while (counter - 3 > 0)
+	{
+		send_half(major_a, major_b, counter);
+		counter = counter / 2;
+	}
+	sort_3(major_a);
+	exit(-1);
 }
 
 void	lazysort(t_list **major_a, t_list **major_b, int len)

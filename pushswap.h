@@ -46,7 +46,7 @@ void	rrr(t_list **major_a, t_list **major_b);
 
 // Functions for sorting 5
 t_list	*ft_lst_penultimate(t_list *head);
-t_list	*ft_antepenultimate(t_list *head);
+//t_list	*ft_antepenultimate(t_list *head);
 void	bring_min_up(int min_v, t_list **head, int len);
 int		find_min(t_list **head);
 void	call_ra(t_list **head, int counter);
@@ -55,3 +55,5 @@ void	sort_5(t_list *major_a, t_list *major_b, int len);
 
 // Fun-ctions for sorting 5+
 void	lazysort(t_list **major_a, t_list **major_b, int len);
+void	sort_more(t_list **major_a, t_list **major_b, int len);
+void	send_half(t_list **major_a, t_list **major_b, int len);
