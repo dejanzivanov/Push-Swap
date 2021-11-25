@@ -1,4 +1,4 @@
-NAME = push_swap.a
+NAME = push_swap
 
 SRCS = pushswap.c ps_moves.c errors.c ps_utils.c
 
@@ -12,8 +12,8 @@ CFLAGS = -Wall -Wextra -Werror
 .c.o:
 		@${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
 
-$(NAME): ${OBJS}
-		@ar rcs ${NAME} ${OBJS}
+$(NAME): ${SRCS}
+		@${CC} ${CFLAGS} ${SRCS} -o ${NAME} 
 
 all:	${NAME}
 

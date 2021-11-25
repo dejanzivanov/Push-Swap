@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/25 10:42:18 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:43:40 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,8 +233,6 @@ void	sort_3(t_list **head)
 	t_list *top;
 
 	top = *head;
-	printf("Before sorting three:\n");
-	printlst(top);
 	if (top->value < top->next->value && top->next->value > top->next->next->value && top->value < top->next->next->value) // 1 3 2
 	{
 		rra(head);
@@ -251,8 +249,6 @@ void	sort_3(t_list **head)
 	}
 	else if (top->value > top->next->value && top->next->value < top->next->next->value && top->value > top->next->next->value) // 3 1 2
 		ra(head);
-	printf("After sorting three:\n");
-	printlst(*head);
 }
 
 t_list	*ft_lst_penultimate(t_list *head)
@@ -355,8 +351,8 @@ void	sort_5(t_list *major_a, t_list *major_b, int len)
 	sort_3(&major_a);
 	pa(&major_a, &major_b);
 	pa(&major_a, &major_b);
-	printf("Is it sorted?\n");
-	printlst(major_a);
+	// printf("Is it sorted?\n");
+	// printlst(major_a);
 }
 
 void	send_half(t_list **major_a, t_list **major_b, int len)
@@ -366,7 +362,6 @@ void	send_half(t_list **major_a, t_list **major_b, int len)
 	t_list *last;
 
 	limit = find_min(major_a) + len / 2;
-	printf("Limit: %d\n", limit);
 	counter = 0;
 	while ((*major_a)->next->next->next != NULL && counter <=limit)
 	{
@@ -394,13 +389,7 @@ void	send_half(t_list **major_a, t_list **major_b, int len)
 		}
 		else
 			rra(major_a);
-			//printf("Fuck\n");
 	}
-	printf("50-50 rap kai graffiti\n");
-	printf("List A:\n");
-	printlst(*major_a);
-	printf("List B:\n");
-	printlst(*major_b);
 	return ;
 }
 
@@ -409,7 +398,6 @@ void	sort_more(t_list **major_a, t_list **major_b, int len)
 	int counter = len;
 	while (counter - 3 > 0)
 	{
-		printf("LOOP\n");
 		if (counter - 3 == 1)
 		{
 			just_the_four_of_us(major_a, major_b);
@@ -421,8 +409,6 @@ void	sort_more(t_list **major_a, t_list **major_b, int len)
 		sort_3(major_a);
 		while(*major_b != NULL)
 			push_back(major_a, major_b, len - 3);
-		printf("AFTER PUSH BACK:\n");
-		printlst(*major_a);
 		exit_stage(*major_a);
 }
 
@@ -499,5 +485,4 @@ void	lazysort(t_list **major_a, t_list **major_b, int len)
 		pb(major_a, major_b);
 		len --;
 	}
-	printlst(*major_b);
 }
