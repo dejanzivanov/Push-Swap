@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 22:18:15 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/23 23:51:20 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/25 03:00:20 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_non_num(char *argv[], int len)
 		j = 0;
 		while (j < ft_strlen(argv[i]))
 		{
-			if (argv[i][j] < 48 || argv[i][j] > 57)
+			if ((argv[i][j] < 48 || argv[i][j] > 57) && argv[i][j] != '-')
 			{
 				write(2, "Error\n", 6);
 				exit (-1);
@@ -43,9 +43,7 @@ void	check_range(long int *arr, int len)
 	while (len > 0)
 	{
 		if (arr[i] > 2147483647 || arr[i] < -2147483648)
-		{
 			panic(arr);
-		}
 		len--;
 		i++;
 	}
@@ -63,7 +61,10 @@ void	check_duplicate(long int *arr, int len)
 		while (j < len)
 		{
 			if (arr[i] == arr[j])
+			{
+				printf("Douplicate.\n");
 				panic(arr);
+			}
 			j++;
 		}
 		i++;

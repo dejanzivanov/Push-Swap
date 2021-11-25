@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/24 23:56:31 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/25 03:16:02 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -373,13 +373,7 @@ void	send_half(t_list **major_a, t_list **major_b, int len)
 		if (find_min(major_a) > limit)
 			return ;
 		last = ft_lstlast(*major_a);
-		if ((*major_a)->value <= limit)
-		{
-			pb(major_a, major_b);
-			last = ft_lstlast(*major_a);
-			counter++;
-		}
-		else if ((*major_a)->next->value <= limit)
+		if ((*major_a)->next->value <= limit)
 		{
 			sa(major_a);
 			pb(major_a, major_b);
@@ -390,6 +384,12 @@ void	send_half(t_list **major_a, t_list **major_b, int len)
 		{
 			rra(major_a);
 			pb(major_a, major_b);
+			counter++;
+		}
+		else if ((*major_a)->value <= limit)
+		{
+			pb(major_a, major_b);
+			last = ft_lstlast(*major_a);
 			counter++;
 		}
 		else
@@ -409,11 +409,90 @@ void	sort_more(t_list **major_a, t_list **major_b, int len)
 	int counter = len;
 	while (counter - 3 > 0)
 	{
+		printf("LOOP\n");
+		if (counter - 3 == 1)
+		{
+			just_the_four_of_us(major_a, major_b);
+			break;
+		}
 		send_half(major_a, major_b, counter);
 		counter = counter / 2;
 	}
-	sort_3(major_a);
-	exit(-1);
+		sort_3(major_a);
+		while(*major_b != NULL)
+			push_back(major_a, major_b, len - 3);
+		printf("AFTER PUSH BACK:\n");
+		printlst(*major_a);
+		exit_stage(*major_a);
+}
+
+void	exit_stage(t_list *head)
+{
+	t_list	*previous;
+	// t_list	*next;
+	t_list	*this;
+
+	previous = head;
+	this = head->next;
+	while (this != NULL)
+	{
+		free(previous);
+		previous = NULL;
+		this = this->next;
+	}
+}
+
+// void	ft_lstiter(t_list *lst, void (*f)(void *))
+// {
+// 	while (lst)
+// 	{
+// 		f(lst->content);
+// 		lst = lst->next;
+// 	}
+// }
+
+void	just_the_four_of_us(t_list **major_a, t_list **major_b)
+{
+	int i;
+
+	i = find_min(major_a);
+	bring_min_up(i, major_a, 4);
+	pb(major_a, major_b);
+}
+
+void	push_back(t_list **major_a, t_list **major_b, int len)
+{
+	t_list	*_next;
+	int		steps;
+
+	steps = 0;
+	_next = *major_a;
+	while((*major_b)->value > _next->value && _next != NULL) //? or <len
+	{
+		_next = _next->next;
+		steps++;		
+	}
+	if (steps == 0)
+		pa(major_a, major_b);
+	else if (steps < len / 2)
+	{
+		call_ra(major_a, steps);
+		pa(major_a, major_b);
+		call_rra(major_a, steps);
+		len++;
+	}
+	else if (steps == len)
+	{
+		pa(major_a, major_b);
+		ra(major_a);
+		len++;
+	}
+	else
+	{
+		call_rra(major_a, steps);
+		pa(major_a, major_b);
+		len++;
+	}
 }
 
 void	lazysort(t_list **major_a, t_list **major_b, int len)
