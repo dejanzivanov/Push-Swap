@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 17:08:28 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/23 23:50:36 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/25 10:33:09 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ void	pa(t_list **major_a, t_list **major_b)
 		new->next = *major_a;
 	*major_a = new;
 	*major_b = top_b->next;
+	free(top_b);
+	top_b = NULL;
 	write(1, "pa\n", 3);
 }
 
@@ -128,8 +130,8 @@ void	pb(t_list **major_a, t_list **major_b)
 		new->next = *major_b;
 	*major_b = new;
 	*major_a = top_a->next;
-	// free(top_a);
-	// top_a = NULL;
+	free(top_a);
+	top_a = NULL;
 	write(1, "pb\n", 3);
 }
 

@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/25 03:16:02 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/25 10:42:18 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -438,18 +438,11 @@ void	exit_stage(t_list *head)
 	{
 		free(previous);
 		previous = NULL;
+		previous = this;
 		this = this->next;
 	}
+	free(previous);
 }
-
-// void	ft_lstiter(t_list *lst, void (*f)(void *))
-// {
-// 	while (lst)
-// 	{
-// 		f(lst->content);
-// 		lst = lst->next;
-// 	}
-// }
 
 void	just_the_four_of_us(t_list **major_a, t_list **major_b)
 {
