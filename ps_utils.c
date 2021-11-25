@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/25 14:43:40 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:43:10 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	just_the_two_of_us(t_list **head)
 		exit(0);
 }
 
-long int *take_arg(int len, char *argv[]) //raw check here, return int* 
+long int *take_arg(int len, char *argv[])
 {
 	int	i;
 	int	j;
@@ -32,7 +32,16 @@ long int *take_arg(int len, char *argv[]) //raw check here, return int*
 
 	j = 1;
 	i = 0;
-	check_non_num(argv, len);
+	if (len > 2)
+	{
+		len -= 1;
+		check_non_num(argv, len);
+	}
+	else if (len == 2)
+	{
+		check_non_num(argv, len - 1);
+		exit(-1);
+	}
 	arr = (long int *)malloc((len) * sizeof(long int));
 	if (!arr)
 		return (0);
