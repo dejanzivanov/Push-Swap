@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/26 02:23:20 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/26 14:37:30 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,7 @@ void	printlst(t_list *lst)
 	}
 }
 
-int		init_struct(long int *indexed, int len)
+t_list		*init_struct(long int *indexed, int len)
 {
 	t_list	*major_a;
 	t_list	*major_b;
@@ -211,6 +211,7 @@ int		init_struct(long int *indexed, int len)
 
 	i = 0;
 	major_b = NULL;
+	major_a = NULL;
 	new = ft_lstnew(indexed[i]);
 	major_a = new;
 	i++;
@@ -220,21 +221,22 @@ int		init_struct(long int *indexed, int len)
 		ft_lstadd_back(major_a, new);
 		i++;
 	}
-	sort_stack(major_a, major_b, len);
-	return (0);
+	sort_stack(&major_a, &major_b, len);
+	//printlst(major_a);
+	return (major_a);
 }
 
-void	sort_stack(t_list *major_a, t_list *major_b, int len)
+void	sort_stack(t_list **major_a, t_list **major_b, int len)
 {
 	if (len == 2)
-		just_the_two_of_us(&major_a);
+		just_the_two_of_us(major_a);
 	if (len == 3)
-		sort_3(&major_a);
+		sort_3(major_a);
 	if (len == 5)
 		sort_5(major_a, major_b, len);
 	else
-		sort_more(&major_a, &major_b, len);
-		//lazysort(&major_a, &major_b, len);
+		sort_more(major_a, major_b, len);
+		//printlst(major_a);
 }
 
 void	sort_3(t_list **head)
@@ -346,20 +348,20 @@ void	call_rra(t_list **head, int counter)
 	}
 }
 
-void	sort_5(t_list *major_a, t_list *major_b, int len)
+void	sort_5(t_list **major_a, t_list **major_b, int len)
 {
 	int	min_v;
 	
-	min_v = find_min(&major_a);
-	bring_min_up(min_v, &major_a, len);
-	pb(&major_a, &major_b);
-	min_v = find_min(&major_a);
-	bring_min_up(min_v, &major_a, len - 1);
-	pb(&major_a, &major_b);
-	printlst(major_b);
-	sort_3(&major_a);
-	pa(&major_a, &major_b);
-	pa(&major_a, &major_b);
+	min_v = find_min(major_a);
+	bring_min_up(min_v, major_a, len);
+	pb(major_a, major_b);
+	min_v = find_min(major_a);
+	bring_min_up(min_v, major_a, len - 1);
+	pb(major_a, major_b);
+	//printlst(major_b);
+	sort_3(major_a);
+	pa(major_a, major_b);
+	pa(major_a, major_b);
 	// printf("Is it sorted?\n");
 	// printlst(major_a);
 }

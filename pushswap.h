@@ -24,11 +24,11 @@ void		check_range(long int *arr, int len);
 void		panic(long int *arr);
 
 // Functions for struct management
-int		init_struct(long int *indexed, int len);
+t_list	*init_struct(long int *indexed, int len);
 void	ft_lstadd_back(t_list *lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 void	printlst(t_list *lst);
-void	sort_stack(t_list *major_a, t_list *major_b, int len);
+void	sort_stack(t_list **major_a, t_list **major_b, int len);
 void	sort_3(t_list **head);
 
 // Allowed moves
@@ -51,7 +51,7 @@ void	bring_min_up(int min_v, t_list **head, int len);
 int		find_min(t_list **head);
 void	call_ra(t_list **head, int counter);
 void	call_rra(t_list **head, int counter);
-void	sort_5(t_list *major_a, t_list *major_b, int len);
+void	sort_5(t_list **major_a, t_list **major_b, int len);
 
 // Fun-ctions for sorting 5+
 void	lazysort(t_list **major_a, t_list **major_b, int len);

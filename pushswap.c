@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:56:01 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/25 15:38:13 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/26 14:38:30 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 	long int	*sorted;
 	long int	*unsorted;
 	long int	*indexed;
+	t_list		*stack_a;
 
 	// if (argc == 2)
 	// 	exit (-1);
@@ -27,6 +28,6 @@ int main(int argc, char *argv[])
 	indexed = get_sorted_indexes(unsorted, sorted, argc - 1);
 	free(unsorted);
 	free(sorted);
-	init_struct(indexed, argc - 1);
+	stack_a = init_struct(indexed, argc - 1);
 	return (0);
 }
