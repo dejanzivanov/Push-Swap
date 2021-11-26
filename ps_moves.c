@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 17:08:28 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/25 10:33:09 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/26 02:37:41 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	rra(t_list **head) //last becomes first
 	*head = new;
 	pen->next = NULL;
 	free(sherpa);
+	sherpa = NULL;
 	write(1, "rra\n", 4);
 }
 
@@ -150,6 +151,8 @@ void	ra(t_list **head) //first becomes last.
 	new->next = NULL;
 	*head = first->next;
 	sherpa->next = new;
+	free(first);
+	first = NULL;
 	write(1, "ra\n", 3);
 }
 void	rb(t_list **head_b)

@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/25 15:43:10 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/26 02:23:20 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -413,11 +413,16 @@ void	sort_more(t_list **major_a, t_list **major_b, int len)
 			break;
 		}
 		send_half(major_a, major_b, counter);
-		counter = counter / 2;
+		counter = (counter / 2 - 1);
 	}
 		sort_3(major_a);
+		len = 3;
 		while(*major_b != NULL)
-			push_back(major_a, major_b, len - 3);
+		{
+			push_back(major_a, major_b, len);
+			len++;
+		}
+		//bring_min_up(0, major_a, len);
 		exit_stage(*major_a);
 }
 
@@ -467,19 +472,17 @@ void	push_back(t_list **major_a, t_list **major_b, int len)
 		call_ra(major_a, steps);
 		pa(major_a, major_b);
 		call_rra(major_a, steps);
-		len++;
 	}
 	else if (steps == len)
 	{
 		pa(major_a, major_b);
 		ra(major_a);
-		len++;
 	}
 	else
 	{
 		call_rra(major_a, steps);
 		pa(major_a, major_b);
-		len++;
+		call_ra(major_a, steps + 1);
 	}
 }
 
