@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/26 14:37:30 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/26 16:09:32 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -376,23 +376,23 @@ void	send_half(t_list **major_a, t_list **major_b, int len)
 	counter = 0;
 	while ((*major_a)->next->next->next != NULL && counter <=limit)
 	{
-		if (find_min(major_a) > limit)
+		if (find_min(major_a) >= limit)
 			return ;
 		last = ft_lstlast(*major_a);
-		if ((*major_a)->next->value <= limit)
+		if ((*major_a)->next->value < limit)
 		{
 			sa(major_a);
 			pb(major_a, major_b);
 			last = ft_lstlast(*major_a);
 			counter++;
 		}
-		else if (last->value <= limit)
+		else if (last->value < limit)
 		{
 			rra(major_a);
 			pb(major_a, major_b);
 			counter++;
 		}
-		else if ((*major_a)->value <= limit)
+		else if ((*major_a)->value < limit)
 		{
 			pb(major_a, major_b);
 			last = ft_lstlast(*major_a);
@@ -406,26 +406,23 @@ void	send_half(t_list **major_a, t_list **major_b, int len)
 
 void	sort_more(t_list **major_a, t_list **major_b, int len)
 {
-	int counter = len;
-	while (counter - 3 > 0)
+	float counter = len;
+	while (counter > 4)
 	{
-		if (counter - 3 == 1)
-		{
-			just_the_four_of_us(major_a, major_b);
-			break;
-		}
 		send_half(major_a, major_b, counter);
-		counter = (counter / 2 - 1);
+		counter = (counter / 2);
 	}
-		sort_3(major_a);
-		len = 3;
-		while(*major_b != NULL)
-		{
-			push_back(major_a, major_b, len);
-			len++;
-		}
-		//bring_min_up(0, major_a, len);
-		exit_stage(*major_a);
+	if (counter > 3)
+		just_the_four_of_us(major_a, major_b);
+	sort_3(major_a);
+	len = 3;
+	while(*major_b != NULL)
+	{
+		push_back(major_a, major_b, len);
+		len++;
+	}
+	//bring_min_up(0, major_a, len);
+	//printlst(*major_a);
 }
 
 void	exit_stage(t_list *head)

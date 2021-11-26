@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:56:01 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/26 14:38:30 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/26 16:10:08 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ int main(int argc, char *argv[])
 	free(unsorted);
 	free(sorted);
 	stack_a = init_struct(indexed, argc - 1);
+	printlst(stack_a);
+	exit_stage(stack_a);
 	return (0);
 }
