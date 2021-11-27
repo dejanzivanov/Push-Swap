@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 22:18:15 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/27 18:50:34 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/27 19:45:10 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	check_if_sorted(long int *arr, int length)
 		length--;
 	}
 	if (i == len - 1)
-		exit(-1);
+		exit(0);
 }
 
 void	panic(long int *arr)

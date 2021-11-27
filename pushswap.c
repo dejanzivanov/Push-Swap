@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:56:01 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/27 18:52:48 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/27 19:30:23 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
 	long int	*indexed;
 	t_list		*stack_a;
 
-	if (argc == 2)
-		exit (-1);
+	if (argc == 1)
+		return (0);
 	input = take_arg(argc, argv);
 	unsorted = copy(input, argc - 1);
 	sorted = bbsort(input, argc - 1);

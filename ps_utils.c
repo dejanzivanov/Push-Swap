@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/27 18:52:21 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/27 20:13:41 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ void	just_the_two_of_us(t_list **head)
 	}
 	else
 		exit(0);
+}
+
+void	check_two(t_list **head)
+{
+	if ((*head)->value > (*head)->next->value)
+		sa(head);
 }
 
 long int *take_arg(int len, char *argv[])
@@ -38,10 +44,7 @@ long int *take_arg(int len, char *argv[])
 		check_non_num(argv, len);
 	}
 	else if (len == 2)
-	{
 		check_non_num(argv, len - 1);
-		exit(-1);
-	}
 	arr = (long int *)malloc((len) * sizeof(long int));
 	if (!arr)
 		return (0);
@@ -429,6 +432,8 @@ void	sort_more(t_list **major_a, t_list **major_b, int len)
 	}
 	if (len == 3)
 		sort_3(major_a);
+	if (len == 2)
+		check_two(major_a);
 	while(*major_b != NULL)
 	{
 		push_back(major_a, major_b, counter);
