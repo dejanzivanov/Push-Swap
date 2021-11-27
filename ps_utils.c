@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/27 02:07:59 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/27 02:13:31 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -433,7 +433,7 @@ void	sort_more(t_list **major_a, t_list **major_b, int len)
 		counter++;
 	}
 	//bring_min_up(0, major_a, len);
-	printlst(*major_a);
+	//printlst(*major_a);
 }
 
 void	exit_stage(t_list *head)
