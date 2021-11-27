@@ -60,3 +60,4 @@ int		send_half(t_list **major_a, t_list **major_b, int len);
 void	push_back(t_list **major_a, t_list **major_b, int len);
 void	just_the_four_of_us(t_list **major_a, t_list **major_b);
 void	exit_stage(t_list *head);
+void	find_next(t_list **major_a, t_list **major_b, int limit, int len);

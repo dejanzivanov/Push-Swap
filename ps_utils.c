@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/27 20:13:41 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/27 21:04:00 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -387,7 +387,13 @@ int	send_half(t_list **major_a, t_list **major_b, int len)
 		// if (find_min(major_a) >= limit)
 		// 	break;
 		last = ft_lstlast(*major_a);
-		if ((*major_a)->next->value < limit)
+		if ((*major_a)->value < limit)
+		{
+			pb(major_a, major_b);
+			last = ft_lstlast(*major_a);
+			counter++;
+		}
+		else if ((*major_a)->next->value < limit)
 		{
 			sa(major_a);
 			pb(major_a, major_b);
@@ -400,18 +406,31 @@ int	send_half(t_list **major_a, t_list **major_b, int len)
 			pb(major_a, major_b);
 			counter++;
 		}
-		else if ((*major_a)->value < limit)
-		{
-			pb(major_a, major_b);
-			last = ft_lstlast(*major_a);
-			counter++;
-		}
-		else if (find_min(major_a) >= limit)
-			break;
 		else
-			rra(major_a);
+			find_next(major_a, major_b, limit, len);
+		if (find_min(major_a) >= limit)
+			break;
 	}
 	return (counter);
+}
+
+void	find_next(t_list **major_a, t_list **major_b, int limit, int len)
+{
+	int	steps;
+
+	steps = 0;
+	while((*major_a)->value > limit)
+		steps++;
+	if (steps < len / 2)
+	{
+		call_ra(major_a, steps);
+		pb(major_a, major_b);
+	}
+	else if (steps >= len / 2)
+	{
+		call_rra(major_a, steps);
+		pb(major_a, major_b);
+	}
 }
 
 void	sort_more(t_list **major_a, t_list **major_b, int len)
