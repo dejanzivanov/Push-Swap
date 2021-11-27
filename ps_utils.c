@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/26 16:09:32 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/27 02:07:59 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -366,18 +366,21 @@ void	sort_5(t_list **major_a, t_list **major_b, int len)
 	// printlst(major_a);
 }
 
-void	send_half(t_list **major_a, t_list **major_b, int len)
+int	send_half(t_list **major_a, t_list **major_b, int len)
 {
 	int	limit;
 	int counter;
+	int min;
 	t_list *last;
 
-	limit = find_min(major_a) + len / 2;
+	min = find_min(major_a);
+	limit = min + len / 2;
 	counter = 0;
-	while ((*major_a)->next->next->next != NULL && counter <=limit)
+	//while ((*major_a)->next->next->next != NULL && counter < limit)
+	while (counter < limit)
 	{
-		if (find_min(major_a) >= limit)
-			return ;
+		// if (find_min(major_a) >= limit)
+		// 	break;
 		last = ft_lstlast(*major_a);
 		if ((*major_a)->next->value < limit)
 		{
@@ -398,31 +401,39 @@ void	send_half(t_list **major_a, t_list **major_b, int len)
 			last = ft_lstlast(*major_a);
 			counter++;
 		}
+		else if (find_min(major_a) >= limit)
+			break;
 		else
 			rra(major_a);
 	}
-	return ;
+	return (counter);
 }
 
 void	sort_more(t_list **major_a, t_list **major_b, int len)
 {
-	float counter = len;
-	while (counter > 4)
+	int counter = len;
+	while (len > 5)
 	{
-		send_half(major_a, major_b, counter);
-		counter = (counter / 2);
+		counter = send_half(major_a, major_b, counter);
+		len = len - counter;
+		//counter = (counter / 2);
 	}
-	if (counter > 3)
+	if (len == 5)
+		sort_5(major_a, major_b, len);
+	else if (len == 4)
+	{
 		just_the_four_of_us(major_a, major_b);
-	sort_3(major_a);
-	len = 3;
+		len--;
+	}
+	if (len == 3)
+		sort_3(major_a);
 	while(*major_b != NULL)
 	{
-		push_back(major_a, major_b, len);
-		len++;
+		push_back(major_a, major_b, counter);
+		counter++;
 	}
 	//bring_min_up(0, major_a, len);
-	//printlst(*major_a);
+	printlst(*major_a);
 }
 
 void	exit_stage(t_list *head)
@@ -466,7 +477,7 @@ void	push_back(t_list **major_a, t_list **major_b, int len)
 	}
 	if (steps == 0)
 		pa(major_a, major_b);
-	else if (steps < len / 2)
+	else if (steps < (float)len / 2)
 	{
 		call_ra(major_a, steps);
 		pa(major_a, major_b);
@@ -483,6 +494,7 @@ void	push_back(t_list **major_a, t_list **major_b, int len)
 		pa(major_a, major_b);
 		call_ra(major_a, steps + 1);
 	}
+	len++;
 }
 
 void	lazysort(t_list **major_a, t_list **major_b, int len)

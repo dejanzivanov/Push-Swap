@@ -56,7 +56,7 @@ void	sort_5(t_list **major_a, t_list **major_b, int len);
 // Fun-ctions for sorting 5+
 void	lazysort(t_list **major_a, t_list **major_b, int len);
 void	sort_more(t_list **major_a, t_list **major_b, int len);
-void	send_half(t_list **major_a, t_list **major_b, int len);
+int		send_half(t_list **major_a, t_list **major_b, int len);
 void	push_back(t_list **major_a, t_list **major_b, int len);
 void	just_the_four_of_us(t_list **major_a, t_list **major_b);
 void	exit_stage(t_list *head);
