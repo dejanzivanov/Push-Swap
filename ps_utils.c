@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 21:52:20 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/27 02:13:31 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/27 18:52:21 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -363,7 +363,7 @@ void	sort_5(t_list **major_a, t_list **major_b, int len)
 	pa(major_a, major_b);
 	pa(major_a, major_b);
 	// printf("Is it sorted?\n");
-	// printlst(major_a);
+	//printlst(*major_a);
 }
 
 int	send_half(t_list **major_a, t_list **major_b, int len)
@@ -375,6 +375,8 @@ int	send_half(t_list **major_a, t_list **major_b, int len)
 
 	min = find_min(major_a);
 	limit = min + len / 2;
+	if (limit % 2 != 0)
+		limit += 1;
 	counter = 0;
 	//while ((*major_a)->next->next->next != NULL && counter < limit)
 	while (counter < limit)

@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 22:18:15 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/25 03:00:20 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/27 18:50:34 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,7 @@ void	check_duplicate(long int *arr, int len)
 		while (j < len)
 		{
 			if (arr[i] == arr[j])
-			{
-				printf("Douplicate.\n");
 				panic(arr);
-			}
 			j++;
 		}
 		i++;
@@ -88,10 +85,7 @@ void	check_if_sorted(long int *arr, int length)
 		length--;
 	}
 	if (i == len - 1)
-	{
-		printf("Already Sorted...\n");
-		panic(arr);
-	}
+		exit(-1);
 }
 
 void	panic(long int *arr)
