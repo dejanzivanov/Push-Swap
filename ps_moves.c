@@ -6,7 +6,7 @@
 /*   By: espyromi <espyromi@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 17:08:28 by espyromi          #+#    #+#             */
-/*   Updated: 2021/11/26 02:37:41 by espyromi         ###   ########.fr       */
+/*   Updated: 2021/11/28 00:54:22 by espyromi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,16 @@ void	sa(t_list **head) //swap the two top
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_list *head_b)
+void	sb(t_list **head_b)
 {
 	t_list	*first;
 	t_list	*second;
 	t_list	*third;
 
-	first = head_b;
-	second = head_b->next;
-	third = head_b->next->next;
-	head_b = second;
+	first = *head_b;
+	second = (*head_b)->next;
+	third = (*head_b)->next->next;
+	*head_b = second;
 	second->next = first;
 	first->next = third;
 	write(1, "sb\n", 3);
@@ -87,7 +87,7 @@ void	sb(t_list *head_b)
 void	ss(t_list *major_a, t_list *major_b)
 {
 	sa(&major_a);
-	sb(major_b);
+	sb(&major_b);
 	write(1, "ss\n", 3);
 }
 void	pa(t_list **major_a, t_list **major_b)
