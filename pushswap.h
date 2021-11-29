@@ -34,7 +34,7 @@ void	sort_3(t_list **head);
 // Allowed moves
 void	sa(t_list **head);
 void	sb(t_list **head);
-void	ss(t_list *major_a, t_list *major_b);
+void	ss(t_list **major_a, t_list **major_b);
 void	pa(t_list **major_a, t_list **major_b);
 void	pb(t_list **major_a, t_list **major_b);
 void	ra(t_list **head);
@@ -55,11 +55,16 @@ void	sort_5(t_list **major_a, t_list **major_b, int len);
 
 // Fun-ctions for sorting 5+
 void	lazysort(t_list **major_a, t_list **major_b, int len);
-void	sort_more(t_list **major_a, t_list **major_b);
-int		send_half(t_list **major_a, t_list **major_b, int len);
-void	push_back(t_list **major_a, t_list **major_b, int len);
+void	sort_100(t_list **major_a, t_list **major_b);
+int		send_half_100(t_list **major_a, t_list **major_b, int len);
+int	push_back(t_list **major_a, t_list **major_b, int len);
 void	just_the_four_of_us(t_list **major_a, t_list **major_b);
 void	exit_stage(t_list *head);
 void	find_next(t_list **major_a, t_list **major_b, int limit, int len);
 void	checking_b(t_list **major_b);
 int		linked_len(t_list **head);
+void	sort_500(t_list **major_a, t_list **major_b);
+int		send_half_500(t_list **major_a, t_list **major_b, int len);
+
+int	check_weird_sending(t_list **major_a, t_list **major_b, int counter, int limit);
+void	check_order(t_list *head);
