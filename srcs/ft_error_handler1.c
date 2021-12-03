@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_error_handler1.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzivanov <dzivanov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 03:22:52 by dzivanov          #+#    #+#             */
+/*   Updated: 2021/12/03 03:23:08 by dzivanov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/ft_push_swap.h"
 
 void	ft_error_printer(t_list *list)
@@ -15,9 +27,6 @@ void	ft_non_numeric_handler(char **argv, t_list *list)
 
 	i = 1;
 	k = 0;
-	/*printf("Character is %c\n", argv[1][0]);
-	if (ft_isalpha(argv[1][0]))
-		ft_error_printer(list);*/
 	while (argv[i])
 	{
 		if ((ft_strlen(argv[i]) == 1) && (argv[i][0] == '0'))

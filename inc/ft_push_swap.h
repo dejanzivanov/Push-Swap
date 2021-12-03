@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_push_swap.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzivanov <dzivanov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 03:43:12 by dzivanov          #+#    #+#             */
+/*   Updated: 2021/12/03 03:46:59 by dzivanov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PUSH_SWAP_H
 # define FT_PUSH_SWAP_H
 
@@ -8,7 +20,7 @@ typedef struct s_vars
 {
 	unsigned int	index;
 	int				value;
-	int	sorted_index;
+	int				sorted_index;
 }			t_vars;
 
 void	ft_del(void *content);

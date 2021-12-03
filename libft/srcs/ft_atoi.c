@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzivanov <dzivanov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 03:26:57 by dzivanov          #+#    #+#             */
+/*   Updated: 2021/12/03 03:26:57 by dzivanov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 DESCRIPTION
 	The atoi() function converts the initial portion of the string pointed

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzivanov <dzivanov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 03:26:02 by dzivanov          #+#    #+#             */
+/*   Updated: 2021/12/03 03:26:29 by dzivanov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -6,18 +18,12 @@
 
 typedef struct s_list
 {
-    void            *content;
-    struct s_list    *next;
-}                t_list;
-/*
-typedef struct s_list
-{
-    t_vars    *content;
-    struct s_list    *next;
-}                t_list;*/
+	void			*content;
+	struct s_list	*next;
+}				t_list;
 
-long			ft_atoi_special(const char *str);
-long			ft_atoi(const char *str);
+long		ft_atoi_special(const char *str);
+long		ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
 int			ft_isalnum(int c);

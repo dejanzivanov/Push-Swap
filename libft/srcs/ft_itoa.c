@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzivanov <dzivanov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 03:29:45 by dzivanov          #+#    #+#             */
+/*   Updated: 2021/12/03 03:29:45 by dzivanov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 DESCRIPTION
-	Allocates (with malloc(3)) and returns a string representing the 
+	Allocates (with malloc(3)) and returns a string representing the
 	integer received as an argument. Negative numbers must be handled.
 RETURN VALUE
 	The string representing the integer. NULL if the allocation fails.

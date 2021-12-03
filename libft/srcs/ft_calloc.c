@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzivanov <dzivanov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 03:27:12 by dzivanov          #+#    #+#             */
+/*   Updated: 2021/12/03 03:27:12 by dzivanov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 DESCRIPTION
 	The calloc() function allocates memory for an array of nmemb elements of size
@@ -11,7 +23,7 @@ DESCRIPTION
 		malloc(nmemb * size);
 
 RETURN VALUE
-	The calloc() function returns a pointer to the allocated memory, which 
+	The calloc() function returns a pointer to the allocated memory, which
 	is suitably aligned for any built-in type. On error, this function return NULL.
 	NULL may also be returned by a successful call to calloc() with nmemb or size
 	equal to zero.
