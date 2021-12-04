@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzivanov <dzivanov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 03:26:57 by dzivanov          #+#    #+#             */
+/*   Updated: 2021/12/03 03:26:57 by dzivanov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 DESCRIPTION
 	The atoi() function converts the initial portion of the string pointed
@@ -7,11 +19,11 @@ RETURN VALUE
 	The converted value.
 */
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	j;
-	int	k;
+	long	i;
+	long	j;
+	long	k;
 
 	i = 0;
 	j = 1;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzivanov <dzivanov@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 03:30:31 by dzivanov          #+#    #+#             */
+/*   Updated: 2021/12/03 03:30:31 by dzivanov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 DESCRIPTION
 	Iterates the list ’lst’ and applies the function ’f’ to the content of
@@ -20,7 +32,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	new_list = NULL;
 	tmp = NULL;
 	while (lst)
-	{	
+	{
 		tmp = ft_lstnew(f(lst->content));
 		if (!tmp)
 			ft_lstdelone(tmp, del);
