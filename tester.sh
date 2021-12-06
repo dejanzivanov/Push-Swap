@@ -6,7 +6,7 @@ SUM=0
 
 for i in {1..10000}
 do
-		export ARG=`ruby -e "puts (0...99).to_a.shuffle.join(' ')"`
+		export ARG=`ruby -e "puts (-501...-1).to_a.shuffle.join(' ')"`
 		if ./push_swap $ARG | ./checker_linux $ARG | grep -q KO
 		then
 			echo "Error from checker"
