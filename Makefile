@@ -6,7 +6,7 @@
 #    By: dzivanov <dzivanov@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 04:53:26 by dzivanov          #+#    #+#              #
-#    Updated: 2021/12/03 04:53:29 by dzivanov         ###   ########.fr        #
+#    Updated: 2021/12/06 14:05:09 by dzivanov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT_SRCD = srcs
 
 LIBFT_LIB    = libft.a
 
-HEADERS_FOLDER    = inc/
+HEADERS_FOLDER    = ./inc/
 
 SRCD		=	./srcs/
 
@@ -49,13 +49,13 @@ LIBFTMAKE    = $(MAKE) -C ${LIBFT_PATH}
 
 $(OBJD)%.o: $(SRCD)%.c
 	@mkdir -p $(OBJD)
-	$(CC) $(CFLAGS) -I ${HEADD} -lbsd -c -o $@ $<
+	$(CC) $(CFLAGS) -I ${HEADERS_FOLDER} -c -o $@ $<
 
 
 all:				${NAME}
 
 ${NAME}:    ${SRCS_OBJS} make
-			${CC}${FLAGS} ${SRCS_FILES} ${LIBFT_OBJS} -o ${NAME}
+			${CC}${FLAGS} ${SRCS_FILES} -L ${HEADERS_FOLDER} ${LIBFT_OBJS} -o ${NAME}
 
 make:
 			${LIBFTMAKE}

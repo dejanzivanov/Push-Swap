@@ -27,7 +27,7 @@ HEADF		= libft.h
 #Note: the object directory will only be created if not existing already. -p flag throws no errors when already there
 $(OBJD)%.o: $(SRCD)%.c
 	@mkdir -p $(OBJD)
-	$(CC) $(CFLAGS) -I ${HEADD} -lbsd -c -o $@ $<
+	$(CC) $(CFLAGS) -I ${HEADD} -c -o $@ $<
 
 $(NAME):	${OBJF}
 			ar rcs ${NAME} ${OBJF}
