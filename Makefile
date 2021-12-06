@@ -6,7 +6,7 @@
 #    By: dzivanov <dzivanov@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 04:53:26 by dzivanov          #+#    #+#              #
-#    Updated: 2021/12/06 14:05:09 by dzivanov         ###   ########.fr        #
+#    Updated: 2021/12/06 14:31:10 by dzivanov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,8 +54,9 @@ $(OBJD)%.o: $(SRCD)%.c
 
 all:				${NAME}
 
-${NAME}:    ${SRCS_OBJS} make
-			${CC}${FLAGS} ${SRCS_FILES} -L ${HEADERS_FOLDER} ${LIBFT_OBJS} -o ${NAME}
+${NAME}:    ${SRCS_OBJS}
+			${LIBFTMAKE}
+			${CC} ${CFLAGS} ${SRCS_FILES} -L ${HEADERS_FOLDER} ${LIBFT_OBJS} -o ${NAME}
 
 make:
 			${LIBFTMAKE}
